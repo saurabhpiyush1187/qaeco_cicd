@@ -1,1 +1,1 @@
-pip install -U selenium
+.\\venv\Scripts\activate.bat
