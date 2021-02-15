@@ -101,36 +101,6 @@ If you want to run only UI cases, run the command:
 
     python -m pytest -s -v -m "ui" --html=./Reports/report.html --browser chrome
 
-## **Framework Architecture**
-![](architecture.png)
-
-## **Why this framework?**
-- ### **Bridging the gap between Product Owner and QA**
-    With the test plan is written plain english in BDD format, it acts as a layer between the acceptance criteria and the automation code. The test plans are easy to understand and written almost in the way the Product Owner writes writes the user stories. 
-
-- ### **Bridging the gap between Manual QA and automation code**
-    When a user story comes to test, the first step is that we create test plans then test the functionality and then move to automation once it is stable enough to automate. Usually, QA ends up creating two test plans, one for manual QA execution and other for automation. 
-
-    Using cucumber-js, the framework provides a way to attach your code directly to the manual test plan and thus avoiding creating another plan for automation 
-
-- ### **Reducing Selenium's complexity**
-    UI automation's primary requirement is identifying the web element. Based on the selector you use (Xpath, css, class, id etc.), there is a separate command for each type of selector. By using MangoJS, you don't need to keep track of the selector you use. 
-    
-    The `get_element` command, for example, takes the selector as the first parameter. It identifies whether the selector is a XPath or a css selector and fetches the element. Under-the-hood, MangoJS uses Selenium to fetch the element. It just makes it easier for the QA engineer to focus on the business logic and not worry about which syntax to use
-
-- ### **Integrated API automation**
-    The framework seggregates web-service data from the code and provides a convinient way to link them both. The framework architecture avoids and encourages non-hardcoded services as it parameterizes as much as possible.
-
-- ### **Dockerized**
-    For running regression cases as fast as possible, and to achieve the target of spontaneous releases, moving the script to docker container helps achieve all of it
-
-- ### **Choosing this over cypress**
-    I have worked with `cypress` in the past. It is great if the motive is to automate only end-to-end cases (in testing terminology, this is also referred to as the happy-path testing).
-    
-    But, if you want to automate a wide set of integration cases, using cypress turns out to be a bit complex and less coder-friendly. For instance, cypress doesn't support conditional `if-else` statements. 
-
-    For complex functionalities, we ofetn move beyond the end-to-end cases and have to create a larger automation plan to cover integration cases as well
-
 ## **Contact**
 Let me know if you would like to know more about the architecture or have any feedback. I would like to talk more about the framework suite and architecture in detail.
 
