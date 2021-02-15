@@ -43,8 +43,31 @@ This will start the execution of all the test cases
 The automation framework is created with the support of **pytest--html**.To view results after execution. Open
 
 >Reports/report.html
-    
 
+**Troubleshooting**
+If the chrome fails to launch, you can set the binaries to the installed chrome on your machine:
+
+Sample code:
+        
+        
+        def setup(browser):
+        global driver
+        capabilities = {'browserName': 'chrome',
+        "chromeOptions": {
+          'binary': "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+                        }
+                        }
+        
+        if browser=='chrome':
+            if platform == "win32":
+                driver=webdriver.Chrome(executable_path="."+os.sep +"browsers"+os.sep +"chromedriver.exe",desired_capabilities=capabilities)
+                print("Launching chrome browser in Windows.........")
+            elif platform =="darwin":
+                driver=webdriver.Chrome(executable_path="."+os.sep +"browsers"+os.sep +"chromedriver")
+                print("Launching chrome driver in Mac")
+        return driver
+
+In the above snippet , binary is set to chrome path installed in my system, you can change it you yours.
 #### **Method B**: Mac
 
 Requirements

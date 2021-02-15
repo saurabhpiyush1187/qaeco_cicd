@@ -2851,3 +2851,45 @@
 02/15/2021 09:33:21 AM: INFO: ****Card is deleted****
 02/15/2021 09:33:21 AM: INFO: ***Test 002 passed****
 02/15/2021 09:33:21 AM: INFO: *** Card manipulation test ended****
+02/15/2021 11:42:38 AM: INFO: ****Started Login  api Test****
+02/15/2021 11:42:39 AM: INFO: *** Test Login api passed****
+02/15/2021 11:42:39 AM: INFO: ****Started create and verify Board Test****
+02/15/2021 11:42:41 AM: INFO: *****Board is created successfully***
+02/15/2021 11:42:42 AM: INFO: *****Board is verified successfully***
+02/15/2021 11:42:42 AM: INFO: *** Test verify board passed****
+02/15/2021 11:42:42 AM: INFO: ****Started create and like card Test****
+02/15/2021 11:42:44 AM: INFO: *****Board is created successfully***
+02/15/2021 11:42:45 AM: INFO: *****Card Column found***
+02/15/2021 11:42:46 AM: INFO: *****Card is created successfully***
+02/15/2021 11:42:47 AM: INFO: *****Like request send successfully***
+02/15/2021 11:42:47 AM: INFO: *** Card is liked ****
+02/15/2021 11:42:47 AM: INFO: ****Ended create and like card Test Successfully****
+02/15/2021 11:42:47 AM: INFO: ****Started create and delete card Test****
+02/15/2021 11:42:47 AM: INFO: ****Started create and like card Test****
+02/15/2021 11:42:49 AM: INFO: *****Board is created successfully***
+02/15/2021 11:42:50 AM: INFO: *****Card Column found***
+02/15/2021 11:42:50 AM: INFO: *****Card is created successfully***
+02/15/2021 11:42:51 AM: INFO: *****Delete request send successfully***
+02/15/2021 11:42:51 AM: INFO: *** Card is Deleted ****
+02/15/2021 11:42:51 AM: INFO: ****Ended create and Deleted card Test Successfully****
+02/15/2021 11:54:15 AM: INFO: ****Started Login  api Test****
+02/15/2021 11:54:17 AM: INFO: *** Test Login api passed****
+02/15/2021 11:54:17 AM: INFO: ****Started create and verify Board Test****
+02/15/2021 11:54:19 AM: INFO: *****Board is created successfully***
+02/15/2021 11:54:19 AM: INFO: *****Board is verified successfully***
+02/15/2021 11:54:19 AM: INFO: *** Test verify board passed****
+02/15/2021 11:54:19 AM: INFO: ****Started create and like card Test****
+02/15/2021 11:54:21 AM: INFO: *****Board is created successfully***
+02/15/2021 11:54:23 AM: INFO: *****Card Column found***
+02/15/2021 11:54:25 AM: INFO: *****Card is created successfully***
+02/15/2021 11:54:26 AM: INFO: *****Like request send successfully***
+02/15/2021 11:54:26 AM: INFO: *** Card is liked ****
+02/15/2021 11:54:26 AM: INFO: ****Ended create and like card Test Successfully****
+02/15/2021 11:54:26 AM: INFO: ****Started create and delete card Test****
+02/15/2021 11:54:26 AM: INFO: ****Started create and like card Test****
+02/15/2021 11:54:28 AM: INFO: *****Board is created successfully***
+02/15/2021 11:54:29 AM: INFO: *****Card Column found***
+02/15/2021 11:54:31 AM: INFO: *****Card is created successfully***
+02/15/2021 11:54:31 AM: INFO: *****Delete request send successfully***
+02/15/2021 11:54:31 AM: INFO: *** Card is Deleted ****
+02/15/2021 11:54:31 AM: INFO: ****Ended create and Deleted card Test Successfully****
