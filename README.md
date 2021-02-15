@@ -17,7 +17,7 @@ For this assignment, I used pytest framework - a python-based test automation fr
 - **requests module** (to automate API)
 - **selenium-webdriver** (to automate UI and saving failed scenarios screenshots)
 - **pytest--html** (for reporting)
-- **logging module** (for loggging - tracking events that occur while software runs)
+- **logging module** (for logging - tracking events that occur while software runs)
 
 ### **Run the Automation Suite**
 First you need to clone the repo to your local
@@ -45,6 +45,7 @@ The automation framework is created with the support of **pytest--html**.To view
 >reports/report.html
 
 **Troubleshooting**
+
 I have included the chromedriver.exe in the project. However, chrome cases may fail due to chromedriver installation issues or binaries not set.If the chrome fails to launch, you can set the binaries to the installed chrome on your machine:
 
 Edit file: ./tests/conftest.py

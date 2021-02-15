@@ -34,13 +34,17 @@ class Test_UI_springboard:
     not_well_delete_header = ReadConfig.getvaluesfrom_json('not_went_well_data','delete_header')
     not_well_delete_question = ReadConfig.getvaluesfrom_json('not_went_well_data','delete_question')
 
-    @pytest.mark.smoke
-    @pytest.mark.ui
-    def test_login_create_board(self, setup):
-        self.logger.info("****Started create board Test****")
+
+    @pytest.fixture()
+    def launch_app(self,setup):
         self.driver = setup
         self.driver.maximize_window()
-        self.driver.get(self.baseURL+self.login_url)
+        self.driver.get(self.baseURL + self.login_url)
+
+    @pytest.mark.smoke
+    @pytest.mark.ui
+    def test_login_create_board(self, launch_app):
+        self.logger.info("****Started create board Test****")
         self.lp = LoginPage(self.driver)
         self.bp = BoardPage(self.driver)
         # login to application and verify homepage
@@ -73,11 +77,8 @@ class Test_UI_springboard:
 
     @pytest.mark.smoke
     @pytest.mark.ui
-    def test_card_manipulation(self,setup):
+    def test_card_manipulation(self,launch_app):
         self.logger.info("****Started Card manipulation Test****")
-        self.driver = setup
-        self.driver.maximize_window()
-        self.driver.get(self.baseURL+self.login_url)
         self.lp=LoginPage(self.driver)
         self.bp = BoardPage(self.driver)
         #login to application and verify homepage
