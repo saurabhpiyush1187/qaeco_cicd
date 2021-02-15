@@ -3,7 +3,7 @@ import os
 import json
 
 config=configparser.RawConfigParser()
-config.read("."+os.sep+"Configurations"+os.sep+"config.ini")
+config.read("."+os.sep+"configurations"+os.sep+"config_ui.ini")
 
 class ReadConfig:
     @staticmethod
@@ -44,7 +44,7 @@ class ReadConfig:
     @staticmethod
     def getvaluesfrom_json(pstr_property, pstr_value):
         try:
-            json_path = "." + os.sep + "TestData" + os.sep + "TestData.json"
+            json_path = "." + os.sep + "testdata" + os.sep + "testdata.json"
             with open(json_path, 'r') as myfile:
                 data = myfile.read()
 

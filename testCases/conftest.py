@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
 import os
+from sys import platform
 
 
 
@@ -8,8 +9,12 @@ import os
 def setup(browser):
     global driver
     if browser=='chrome':
-        driver=webdriver.Chrome(executable_path="."+os.sep +"Browsers"+os.sep +"chromedriver.exe")
-        print("Launching chrome browser.........")
+        if platform == "win32":
+            driver=webdriver.Chrome(executable_path="."+os.sep +"browsers"+os.sep +"chromedriver.exe")
+            print("Launching chrome browser in Windows.........")
+        elif platform =="darwin":
+            driver=webdriver.Chrome(executable_path="."+os.sep +"browsers"+os.sep +"chromedriver")
+            print("Launching chrome driver in Mac")
     return driver
 
 def pytest_addoption(parser):    # This will get the value from CLI /hooks
