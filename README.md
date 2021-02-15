@@ -42,10 +42,12 @@ This will start the execution of all the test cases
 **View HTML Report**
 The automation framework is created with the support of **pytest--html**.To view results after execution. Open
 
->Reports/report.html
+>reports/report.html
 
 **Troubleshooting**
-If the chrome fails to launch, you can set the binaries to the installed chrome on your machine:
+I have included the chromedriver.exe in the project. However, chrome cases may fail due to chromedriver installation issues or binaries not set.If the chrome fails to launch, you can set the binaries to the installed chrome on your machine:
+
+Edit file: ./tests/conftest.py
 
 Sample code:
         
@@ -54,7 +56,7 @@ Sample code:
         global driver
         capabilities = {'browserName': 'chrome',
         "chromeOptions": {
-          'binary': "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+          'binary': "C:\Program Files\Google\Chrome\Application\chrome.exe"
                         }
                         }
         
@@ -68,6 +70,24 @@ Sample code:
         return driver
 
 In the above snippet , binary is set to chrome path installed in my system, you can change it you yours.
+
+or you can use the default driver binary included in the chromedriver(project)
+
+Sample code
+      
+
+      def setup(browser):
+        global driver
+        
+        if browser=='chrome':
+            if platform == "win32":
+                driver=webdriver.Chrome(executable_path="."+os.sep +"browsers"+os.sep +"chromedriver.exe")
+                print("Launching chrome browser in Windows.........")
+            elif platform =="darwin":
+                driver=webdriver.Chrome(executable_path="."+os.sep +"browsers"+os.sep +"chromedriver")
+                print("Launching chrome driver in Mac")
+        return driver
+
 #### **Method B**: Mac
 
 Requirements
@@ -79,12 +99,20 @@ Since virtual environments cannot be shared accross Operating systems, I have fr
 
 Please follow the steps below:
 
-1. **Open the command line and point it to the directory of the repo on your system**
+1. **Open the terminal and point it to the directory of the repo on your system**
     
 2. **Execute the following commands**
 
+
+
             python -m venv env
             source env/bin/activate
+            pip install -r requirements.txt
+   
+            or 
+
+            python -m venv env
+            source env/Scripts/activate
             pip install -r requirements.txt
             
 
@@ -94,9 +122,13 @@ Please follow the steps below:
 3. **Run the script**
 
     Now, simply run the command
-    
+
+
     python -m pytest -s -v -m "smoke" --html=./Reports/report.html --browser chrome
 
+         or
+
+    py -m pytest -s -v -m "smoke" --html=./Reports/report.html --browser chrome
 4. **Troubleshooting in Mac**
     
     If you have any issue with chromedriver, you can copy **./Browsers/chromedriver** to **/usr/local/bin**
