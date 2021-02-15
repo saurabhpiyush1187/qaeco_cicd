@@ -3,6 +3,7 @@ from utilities.customLogger import LogGen
 import os
 from utilities.readProperties import ReadConfig
 from core.ui.ui_helper import UIHelper
+import time
 
 class CreateCard:
     # Create card Page
@@ -55,6 +56,7 @@ class CreateCard:
             assert False
 
     def create_card(self,pstr_title, pstr_description):
+        time.sleep(3)
         bln_title_name = self.ui_helper.is_element_displayed(self.card_locators.pstr_title)
         if bln_title_name:
             self.ui_helper.type(self.card_locators.pstr_title,pstr_title)
@@ -90,7 +92,7 @@ class CreateCard:
         pstr_load = self.card_locators.pstr_load_title.format(pstr_card_type)
         bln_load_card = self.ui_helper.is_element_displayed(pstr_load)
         if bln_load_card:
-            pstr_expected_title= self.card_locators.pstr_verify_title.format(pstr_card_type)
+            pstr_expected_title= self.card_locators.pstr_verify_title.formaFt(pstr_card_type)
             str_pstr_title = self.driver.find_element_by_xpath(pstr_expected_title).text
             pstr_expected_descr = self.card_locators.pstr_verify_description.format(pstr_card_type)
             str_pstr_desc = self.driver.find_element_by_xpath(pstr_expected_descr).text
@@ -110,6 +112,7 @@ class CreateCard:
             return False
 
     def click_activity(self,pstr_card_type, pstr_activity):
+        time.sleep(3)
         if pstr_activity == "like":
             pstr_activity_val = "0"
         else:
