@@ -92,7 +92,7 @@ class CreateCard:
         pstr_load = self.card_locators.pstr_load_title.format(pstr_card_type)
         bln_load_card = self.ui_helper.is_element_displayed(pstr_load)
         if bln_load_card:
-            pstr_expected_title= self.card_locators.pstr_verify_title.formaFt(pstr_card_type)
+            pstr_expected_title= self.card_locators.pstr_verify_title.format(pstr_card_type)
             str_pstr_title = self.driver.find_element_by_xpath(pstr_expected_title).text
             pstr_expected_descr = self.card_locators.pstr_verify_description.format(pstr_card_type)
             str_pstr_desc = self.driver.find_element_by_xpath(pstr_expected_descr).text
