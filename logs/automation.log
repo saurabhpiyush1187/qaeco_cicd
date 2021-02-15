@@ -2704,3 +2704,150 @@
 02/15/2021 08:20:17 AM: INFO: ****Card is deleted****
 02/15/2021 08:20:17 AM: INFO: ***Test 002 passed****
 02/15/2021 08:20:17 AM: INFO: *** Card manipulation test ended****
+02/15/2021 09:21:59 AM: INFO: ****Started create board Test****
+02/15/2021 09:22:06 AM: INFO: ****Verifying Login page****
+02/15/2021 09:22:07 AM: INFO: ****User is on the login page****
+02/15/2021 09:22:07 AM: INFO: ****Entering Email address****
+02/15/2021 09:22:07 AM: INFO: ****Entered Email address***  sennderqa3@gmail.com
+02/15/2021 09:22:07 AM: INFO: ****Entering password****
+02/15/2021 09:22:08 AM: INFO: ****Entered Password****  n*H7A7f@&ikbwu
+02/15/2021 09:22:08 AM: INFO: ****Clicking Submit button****
+02/15/2021 09:22:08 AM: INFO: ****Submit button clicked****
+02/15/2021 09:22:08 AM: INFO: ****Verifying Home page****
+02/15/2021 09:22:11 AM: INFO: ****User is on the home page****
+02/15/2021 09:22:11 AM: INFO: ****Create Board link clicked****
+02/15/2021 09:22:11 AM: INFO: URL is incorrect
+02/15/2021 09:22:22 AM: INFO: ****Started Card manipulation Test****
+02/15/2021 09:22:33 AM: INFO: ****Verifying Login page****
+02/15/2021 09:22:33 AM: INFO: ****User is on the login page****
+02/15/2021 09:22:33 AM: INFO: ****Entering Email address****
+02/15/2021 09:22:34 AM: INFO: ****Entered Email address***  sennderqa3@gmail.com
+02/15/2021 09:22:34 AM: INFO: ****Entering password****
+02/15/2021 09:22:35 AM: INFO: ****Entered Password****  n*H7A7f@&ikbwu
+02/15/2021 09:22:35 AM: INFO: ****Clicking Submit button****
+02/15/2021 09:22:35 AM: INFO: ****Submit button clicked****
+02/15/2021 09:22:35 AM: INFO: ****Verifying Home page****
+02/15/2021 09:22:37 AM: INFO: ****User is on the home page****
+02/15/2021 09:22:37 AM: INFO: ****Create Board link clicked****
+02/15/2021 09:22:41 AM: INFO: ****Entered session name****   My first board
+02/15/2021 09:22:42 AM: INFO: ****Selected Owner name****   Sennder
+02/15/2021 09:22:43 AM: INFO: ****Clicked create board button***
+02/15/2021 09:22:44 AM: INFO: ***Success message verified****
+02/15/2021 09:22:48 AM: INFO: ****Card creation page loaded****
+02/15/2021 09:22:48 AM: INFO: URL is incorrect
+02/15/2021 09:26:08 AM: INFO: ****Started create board Test****
+02/15/2021 09:26:12 AM: INFO: ****Verifying Login page****
+02/15/2021 09:26:12 AM: INFO: ****User is on the login page****
+02/15/2021 09:26:12 AM: INFO: ****Entering Email address****
+02/15/2021 09:26:13 AM: INFO: ****Entered Email address***  sennderqa3@gmail.com
+02/15/2021 09:26:13 AM: INFO: ****Entering password****
+02/15/2021 09:26:13 AM: INFO: ****Entered Password****  n*H7A7f@&ikbwu
+02/15/2021 09:26:13 AM: INFO: ****Clicking Submit button****
+02/15/2021 09:26:13 AM: INFO: ****Submit button clicked****
+02/15/2021 09:26:13 AM: INFO: ****Verifying Home page****
+02/15/2021 09:26:16 AM: INFO: ****User is on the home page****
+02/15/2021 09:26:16 AM: INFO: ****Create Board link clicked****
+02/15/2021 09:26:16 AM: INFO: URL is correct
+02/15/2021 09:26:17 AM: INFO: ****Page Header is Create a Board****
+02/15/2021 09:26:20 AM: INFO: ****Entered session name****   My first board
+02/15/2021 09:26:20 AM: INFO: ****Selected Owner name****   Sennder
+02/15/2021 09:26:20 AM: INFO: ****Clicked create board button***
+02/15/2021 09:26:21 AM: INFO: ***Success message verified****
+02/15/2021 09:26:21 AM: INFO: *** Test 001 passed****
+02/15/2021 09:26:21 AM: INFO: ****Create board Test End****
+02/15/2021 09:26:29 AM: INFO: ****Started Card manipulation Test****
+02/15/2021 09:26:35 AM: INFO: ****Verifying Login page****
+02/15/2021 09:26:35 AM: INFO: ****User is on the login page****
+02/15/2021 09:26:35 AM: INFO: ****Entering Email address****
+02/15/2021 09:26:36 AM: INFO: ****Entered Email address***  sennderqa3@gmail.com
+02/15/2021 09:26:36 AM: INFO: ****Entering password****
+02/15/2021 09:26:36 AM: INFO: ****Entered Password****  n*H7A7f@&ikbwu
+02/15/2021 09:26:36 AM: INFO: ****Clicking Submit button****
+02/15/2021 09:26:36 AM: INFO: ****Submit button clicked****
+02/15/2021 09:26:36 AM: INFO: ****Verifying Home page****
+02/15/2021 09:26:38 AM: INFO: ****User is on the home page****
+02/15/2021 09:26:38 AM: INFO: ****Create Board link clicked****
+02/15/2021 09:26:41 AM: INFO: ****Entered session name****   My first board
+02/15/2021 09:26:41 AM: INFO: ****Selected Owner name****   Sennder
+02/15/2021 09:26:41 AM: INFO: ****Clicked create board button***
+02/15/2021 09:26:42 AM: INFO: ***Success message verified****
+02/15/2021 09:26:46 AM: INFO: ****Card creation page loaded****
+02/15/2021 09:26:46 AM: INFO: URL is correct
+02/15/2021 09:26:46 AM: INFO: ****Card type is clicked****  Went well
+02/15/2021 09:26:46 AM: INFO: ****Card Modal header verified****  Add a Card
+02/15/2021 09:26:47 AM: INFO: ****Entered title name****   Goal was achieved
+02/15/2021 09:26:47 AM: INFO: ****Entered Description****   Sprint was well planned
+02/15/2021 09:26:48 AM: INFO: ****Clicked Add a card button***
+02/15/2021 09:26:50 AM: INFO: ****Card Details verified****
+02/15/2021 09:26:50 AM: INFO: ****Card type is clicked****  Didn't go well
+02/15/2021 09:26:50 AM: INFO: ****Card Modal header verified****  Add a Card
+02/15/2021 09:26:51 AM: INFO: ****Entered title name****   Goal was not achieved
+02/15/2021 09:26:51 AM: INFO: ****Entered Description****   
+02/15/2021 09:26:51 AM: INFO: ****Clicked Add a card button***
+02/15/2021 09:26:53 AM: INFO: ****Card Details verified****
+02/15/2021 09:26:53 AM: INFO: like****Activity clicked****
+02/15/2021 09:26:55 AM: INFO: like**** is verified****
+02/15/2021 09:26:56 AM: INFO: Delete****Activity clicked****
+02/15/2021 09:26:56 AM: INFO: ****Delete modal pop up is verified****
+02/15/2021 09:26:56 AM: INFO: ****Card delete button is clicked****
+02/15/2021 09:26:58 AM: INFO: ****Card is deleted****
+02/15/2021 09:26:58 AM: INFO: ***Test 002 passed****
+02/15/2021 09:26:58 AM: INFO: *** Card manipulation test ended****
+02/15/2021 09:32:27 AM: INFO: ****Started create board Test****
+02/15/2021 09:32:32 AM: INFO: ****Verifying Login page****
+02/15/2021 09:32:32 AM: INFO: ****User is on the login page****
+02/15/2021 09:32:32 AM: INFO: ****Entering Email address****
+02/15/2021 09:32:32 AM: INFO: ****Entered Email address***  sennderqa3@gmail.com
+02/15/2021 09:32:32 AM: INFO: ****Entering password****
+02/15/2021 09:32:33 AM: INFO: ****Entered Password****  n*H7A7f@&ikbwu
+02/15/2021 09:32:33 AM: INFO: ****Clicking Submit button****
+02/15/2021 09:32:33 AM: INFO: ****Submit button clicked****
+02/15/2021 09:32:33 AM: INFO: ****Verifying Home page****
+02/15/2021 09:32:34 AM: INFO: ****User is on the home page****
+02/15/2021 09:32:35 AM: INFO: ****Create Board link clicked****
+02/15/2021 09:32:35 AM: INFO: URL is correct
+02/15/2021 09:32:35 AM: INFO: ****Page Header is Create a Board****
+02/15/2021 09:32:37 AM: INFO: ****Entered session name****   My first board
+02/15/2021 09:32:38 AM: INFO: ****Selected Owner name****   Sennder
+02/15/2021 09:32:38 AM: INFO: ****Clicked create board button***
+02/15/2021 09:32:39 AM: INFO: ***Success message verified****
+02/15/2021 09:32:39 AM: INFO: *** Test 001 passed****
+02/15/2021 09:32:39 AM: INFO: ****Create board Test End****
+02/15/2021 09:32:48 AM: INFO: ****Started Card manipulation Test****
+02/15/2021 09:32:54 AM: INFO: ****Verifying Login page****
+02/15/2021 09:32:54 AM: INFO: ****User is on the login page****
+02/15/2021 09:32:54 AM: INFO: ****Entering Email address****
+02/15/2021 09:32:54 AM: INFO: ****Entered Email address***  sennderqa3@gmail.com
+02/15/2021 09:32:54 AM: INFO: ****Entering password****
+02/15/2021 09:32:55 AM: INFO: ****Entered Password****  n*H7A7f@&ikbwu
+02/15/2021 09:32:55 AM: INFO: ****Clicking Submit button****
+02/15/2021 09:32:55 AM: INFO: ****Submit button clicked****
+02/15/2021 09:32:55 AM: INFO: ****Verifying Home page****
+02/15/2021 09:32:57 AM: INFO: ****User is on the home page****
+02/15/2021 09:32:57 AM: INFO: ****Create Board link clicked****
+02/15/2021 09:33:00 AM: INFO: ****Entered session name****   My first board
+02/15/2021 09:33:01 AM: INFO: ****Selected Owner name****   Sennder
+02/15/2021 09:33:01 AM: INFO: ****Clicked create board button***
+02/15/2021 09:33:02 AM: INFO: ***Success message verified****
+02/15/2021 09:33:06 AM: INFO: ****Card creation page loaded****
+02/15/2021 09:33:06 AM: INFO: URL is correct
+02/15/2021 09:33:06 AM: INFO: ****Card type is clicked****  Went well
+02/15/2021 09:33:06 AM: INFO: ****Card Modal header verified****  Add a Card
+02/15/2021 09:33:07 AM: INFO: ****Entered title name****   Goal was achieved
+02/15/2021 09:33:08 AM: INFO: ****Entered Description****   Sprint was well planned
+02/15/2021 09:33:09 AM: INFO: ****Clicked Add a card button***
+02/15/2021 09:33:11 AM: INFO: ****Card Details verified****
+02/15/2021 09:33:11 AM: INFO: ****Card type is clicked****  Didn't go well
+02/15/2021 09:33:11 AM: INFO: ****Card Modal header verified****  Add a Card
+02/15/2021 09:33:12 AM: INFO: ****Entered title name****   Goal was not achieved
+02/15/2021 09:33:13 AM: INFO: ****Entered Description****   
+02/15/2021 09:33:13 AM: INFO: ****Clicked Add a card button***
+02/15/2021 09:33:15 AM: INFO: ****Card Details verified****
+02/15/2021 09:33:15 AM: INFO: like****Activity clicked****
+02/15/2021 09:33:17 AM: INFO: like**** is verified****
+02/15/2021 09:33:18 AM: INFO: Delete****Activity clicked****
+02/15/2021 09:33:18 AM: INFO: ****Delete modal pop up is verified****
+02/15/2021 09:33:18 AM: INFO: ****Card delete button is clicked****
+02/15/2021 09:33:21 AM: INFO: ****Card is deleted****
+02/15/2021 09:33:21 AM: INFO: ***Test 002 passed****
+02/15/2021 09:33:21 AM: INFO: *** Card manipulation test ended****

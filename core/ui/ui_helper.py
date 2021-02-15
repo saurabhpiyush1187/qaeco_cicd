@@ -5,7 +5,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import Select
-import re
 
 
 class UIHelper():
@@ -80,25 +79,18 @@ class UIHelper():
 
 
     def verify_url(self,pstr_old_url, pstr_current_url):
-        try:
-            if 'https' in pstr_current_url:
-                pstr_current_url = pstr_current_url.replace('https://','')
-            elif 'http' in pstr_current_url:
-                pstr_current_url = pstr_current_url.replace('http://','')
+        if 'https' in pstr_old_url:
+            pstr_old_url = pstr_old_url.replace('https://','')
+        elif 'http' in pstr_current_url:
+            pstr_old_url = pstr_old_url.replace('http://','')
 
-            regex = "^[{]?[0-9a-fA-F]{8}" + "-([0-9a-fA-F]{4}-)" + "{3}[0-9a-fA-F]{12}[}]?$"
-            p = re.compile(regex)
-            if (re.search(p, pstr_current_url.split('/')[-1])):
-                pstr_current_url = pstr_current_url.replace('/' + pstr_current_url.split('/')[-1], '')
-            if pstr_current_url in pstr_old_url:
-                self.logger.info("URL is correct")
-                return True
-            else:
-                self.logger.info("URL is incorrect")
-                return False
-        except Exception as e:
-            self.logger.info(e)
-            raise
+
+        if pstr_old_url in pstr_current_url:
+            self.logger.info("URL is correct")
+            return True
+        else:
+            self.logger.info("URL is incorrect")
+            return False
 
     def select_dropdown_value(self, plocator, **kwargs):
         """

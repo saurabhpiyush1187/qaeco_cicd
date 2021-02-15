@@ -1,1 +1,1 @@
-python -m pytest -s -v -m "smoke" --html=./reports/report.html --browser chrome
+python -m pytest -s -v -m "ui" --html=./reports/report.html --browser chrome

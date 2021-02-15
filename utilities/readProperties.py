@@ -21,10 +21,6 @@ class ReadConfig:
         password=config.get('common info','password')
         return password
 
-    @staticmethod
-    def getcreateBoardURL():
-        board_url = config.get('common info', 'createboardURL')
-        return board_url
 
     @staticmethod
     def getexplicitwait():
@@ -36,14 +32,9 @@ class ReadConfig:
         implicit_wait = config.get('common info', 'default_implicit_wait')
         return implicit_wait
 
-    @staticmethod
-    def getCreateBoardTitle():
-        title = config.get('common info','createboardTitle')
-        return title
 
     @staticmethod
     def getvaluesfrom_json(pstr_property, pstr_value):
-        try:
             json_path = "." + os.sep + "testdata" + os.sep + "testdata.json"
             with open(json_path, 'r') as myfile:
                 data = myfile.read()
@@ -51,6 +42,3 @@ class ReadConfig:
             # parse file
             obj = json.loads(data)
             return str(obj[pstr_property][pstr_value])
-        except Exception as exception_msg:
-            print(exception_msg)
-            return False
