@@ -97,7 +97,7 @@ If you want to run only API cases, simply run the command(Mac) or edit the same 
     
     python -m pytest -s -v -m "api" --html=./Reports/report.html
 
-If you want to run only UI cases, run the command:
+If you want to run only UI cases, simply run the command(Mac) or edit the same in **run.bat**(Windows):
 
     python -m pytest -s -v -m "ui" --html=./Reports/report.html --browser chrome
 
