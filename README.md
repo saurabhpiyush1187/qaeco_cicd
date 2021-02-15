@@ -12,7 +12,7 @@ This repo contains the UI as well as API automation cases that were developed as
 6. [Contact](#Contact)
 
 ## **Framework**
-For this assignment, I have used pytest framework - a python-based test automation framework suite. It is a Test Driven Development (TDD) framework comprising of the following packages:
+For this assignment, I used pytest framework - a python-based test automation framework suite. It is a Test Driven Development (TDD) framework comprising of the following packages:
 - **pytest** (for executing test plans in TDD format)
 - **requests module** (to automate API)
 - **selenium-webdriver** (to automate UI and saving failed scenarios screenshots)
@@ -42,9 +42,32 @@ This will start the execution of all the test cases
 **View HTML Report**
 The automation framework is created with the support of **pytest--html**.To view results after execution. Open
 
->reports/report.html
-    
+>Reports/report.html
 
+**Troubleshooting**
+If the chrome fails to launch, you can set the binaries to the installed chrome on your machine:
+
+Sample code:
+        
+        
+        def setup(browser):
+        global driver
+        capabilities = {'browserName': 'chrome',
+        "chromeOptions": {
+          'binary': "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+                        }
+                        }
+        
+        if browser=='chrome':
+            if platform == "win32":
+                driver=webdriver.Chrome(executable_path="."+os.sep +"browsers"+os.sep +"chromedriver.exe",desired_capabilities=capabilities)
+                print("Launching chrome browser in Windows.........")
+            elif platform =="darwin":
+                driver=webdriver.Chrome(executable_path="."+os.sep +"browsers"+os.sep +"chromedriver")
+                print("Launching chrome driver in Mac")
+        return driver
+
+In the above snippet , binary is set to chrome path installed in my system, you can change it you yours.
 #### **Method B**: Mac
 
 Requirements
@@ -59,10 +82,12 @@ Please follow the steps below:
 1. **Open the command line and point it to the directory of the repo on your system**
     
 2. **Execute the following commands**
- 
-    python -m venv env
-    source env/bin/activate
-    pip install -r requirements.txt
+
+            python -m venv env
+            source env/bin/activate
+            pip install -r requirements.txt
+            
+
 
     This will install all the dependent libraries
 
@@ -95,11 +120,9 @@ If you want to run only API cases, simply run the command(Mac) or edit the same 
     
     python -m pytest -s -v -m "api" --html=./Reports/report.html
 
-If you want to run only UI cases, run the command:
+If you want to run only UI cases, simply run the command(Mac) or edit the same in **run.bat**(Windows):
 
     python -m pytest -s -v -m "ui" --html=./Reports/report.html --browser chrome
-
-
 
 ## **Contact**
 Let me know if you would like to know more about the architecture or have any feedback. I would like to talk more about the framework suite and architecture in detail.
@@ -107,4 +130,3 @@ Let me know if you would like to know more about the architecture or have any fe
 With best regards,
 
 Saurabh
-

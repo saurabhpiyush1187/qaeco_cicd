@@ -12,6 +12,7 @@ class Test_UI_springboard:
     username = ReadConfig.getUseremail()
     password = ReadConfig.getPassword()
     logger=LogGen.loggen()
+    login_url= ReadConfig.getvaluesfrom_json('page_urls', 'login_url')
     create_boardURL = ReadConfig.getvaluesfrom_json('page_urls', 'create_board')
     create_board_title = ReadConfig.getvaluesfrom_json('title', 'create_board')
     str_page_header = ReadConfig.getvaluesfrom_json('header', 'create_board')
@@ -39,7 +40,7 @@ class Test_UI_springboard:
         self.logger.info("****Started create board Test****")
         self.driver = setup
         self.driver.maximize_window()
-        self.driver.get(self.baseURL)
+        self.driver.get(self.baseURL+self.login_url)
         self.lp = LoginPage(self.driver)
         self.bp = BoardPage(self.driver)
         # login to application and verify homepage
@@ -49,7 +50,7 @@ class Test_UI_springboard:
         self.ui_helper = UIHelper(self.driver)
         pstr_url = self.driver.current_url
         # verify current url of create board
-        assert self.ui_helper.verify_url(self.create_boardURL, pstr_url)
+        assert self.ui_helper.verify_url(self.baseURL+self.create_boardURL, pstr_url)
         pstr_title = self.driver.title
         # verify title of create board page
         assert self.create_board_title, pstr_title
@@ -76,7 +77,7 @@ class Test_UI_springboard:
         self.logger.info("****Started Card manipulation Test****")
         self.driver = setup
         self.driver.maximize_window()
-        self.driver.get(self.baseURL)
+        self.driver.get(self.baseURL+self.login_url)
         self.lp=LoginPage(self.driver)
         self.bp = BoardPage(self.driver)
         #login to application and verify homepage
@@ -91,7 +92,7 @@ class Test_UI_springboard:
             self.cp.wait_board_page_to_load()
             pstr_url = self.driver.current_url
             #verify board url
-            assert self.ui_helper.verify_url(self.board_url, pstr_url)
+            assert self.ui_helper.verify_url(self.baseURL+self.board_url, pstr_url)
             #click went well card card
             self.cp.clickCard(self.card_type_went_well)
             #verify modal header

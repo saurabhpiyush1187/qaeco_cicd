@@ -1,8 +1,9 @@
 {
     "page_urls":
     {
-        "create_board": "https://sprintboards.io/boards/create",
-        "board_page" : "https://sprintboards.io/boards"
+        "login_url": "/auth/login",
+        "create_board": "/boards/create",
+        "board_page" : "/boards"
     }
     ,
     "create-board_data":
