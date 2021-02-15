@@ -18,6 +18,7 @@ class CreateCard:
 
     def clickCard(self, pstr_type):
         pstr_card_type = self.card_locators.pstr_type_card.format(pstr_type)
+        time.sleep(3)
         bln_card_type = self.ui_helper.is_element_displayed(pstr_card_type)
         if bln_card_type:
             self.ui_helper.click(pstr_card_type)
@@ -56,7 +57,7 @@ class CreateCard:
             assert False
 
     def create_card(self,pstr_title, pstr_description):
-        time.sleep(3)
+        self.driver.implicitly_wait(3)
         bln_title_name = self.ui_helper.is_element_displayed(self.card_locators.pstr_title)
         if bln_title_name:
             self.ui_helper.type(self.card_locators.pstr_title,pstr_title)
