@@ -1,1 +1,1 @@
-python -m pytest -s -v -m "ui" --html=./reports/report.html --browser chrome
+pytest -s -v -m "api" --html=./reports/report.html  --browser chrome
