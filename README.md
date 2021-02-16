@@ -14,7 +14,7 @@ This repo contains the UI as well as API automation cases that were developed as
 ## **Framework**
 For this assignment, I used pytest framework - a python-based test automation framework suite. It is a Test Driven Development (TDD) framework comprising of the following packages:
 - **pytest** (for executing test plans in TDD format)
-- **requests module** (to automate API)
+- **requests library** (to automate API)
 - **selenium-webdriver** (to automate UI and saving failed scenarios screenshots)
 - **pytest--html** (for reporting)
 - **logging module** (for logging - tracking events that occur while software runs)
@@ -114,7 +114,7 @@ Please follow the steps below:
     
 
 ## **API Automation**
-I have also automate the cases through cases through api
+I have also automate the cases through cases through api.Automated API tests provide much faster test results and significantly accelerate development workflows. To start with, API tests do not need to wait for GUI to be ready and can be performed early in the agile development cycle, which helps you speed up the feedback loop and catch issues faster.
 
 If you want to run only API cases, simply run the command(Mac) or edit the same in **run.bat**(Windows):
     
@@ -123,6 +123,50 @@ If you want to run only API cases, simply run the command(Mac) or edit the same 
 If you want to run only UI cases, simply run the command(Mac) or edit the same in **run.bat**(Windows):
 
     python -m pytest -s -v -m "ui" --html=./Reports/report.html --browser chrome
+## **Framework Architecture**
+![](architecture.png)
+
+## **Why this framework?**
+- ### **Open Source and Compatible**
+    Pytest is open source and compatible with other test frameworks like BDD. Moreover,it can be used by development teams, test teams, teams that are practicing Test Driven Development(TDD), as well as in open-source projects. Finally,It also support Fixtures & Classes, which makes it easier to create common test objects available throughout a module/session/function/class.The framework architecture avoids and encourages non-hardcoded services as it parameterizes as much as possible.
+  
+- ### **Auto-Discovery of Tests**
+    Pytest's default finds tests with the file name with the preface, "test," or the suffix "_test.py." However, we can configure Pytest to discover custom names by changing the Pytest configuration file “pytest.ini.” By adding the following extension, Pytest automatically discovers tests with the filename “verify.”
+  
+            [pytest]  
+            python_files = verify_*.py 
+            python_classes = Verify 
+            python_functions = *_verify 
+  
+
+- ### **Command line execution**
+    Pytest provides several options to run tests from the command line.
+
+            pytest -v -s #verbosity and execution time of test
+            e.g:pytest –v –s  
+
+            pytest <file_name>   #run tests in module/file  
+             e.g:pytest test_demo.py
+            
+            pytest –k <name>  #run all the test with matching name 
+             e.g:pytest –k add #runs all the test with add  
+            
+            pytest filename::testName #runs only one test 
+             e.g:pytest test_demo::test_addition 
+
+- ### **Supports reporting**
+    The Pytest community has a rich test of plug-ins to extend the module's functionality. One of them is pytest-html that generates a HTML report for test results.  
+
+
+- ### **Integrated API automation**
+    The framework uses python requests which is simple, yet elegant HTTP library. There is no need for any third party application to test and automate APIs.The accelerated execution speed of automated API tests leads to more effective resource consumption and lower overall testing costs.
+
+- ### **Support for CI/CD**
+    Pytest supports generating reports in JUnit format. By creating the XML file CI/CD systems like Jenkins can read the log files.
+    
+        pytest --junitxml=path 
+    
+
 
 ## **Contact**
 Let me know if you would like to know more about the architecture or have any feedback. I would like to talk more about the framework suite and architecture in detail.
