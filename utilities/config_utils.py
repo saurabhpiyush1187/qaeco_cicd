@@ -28,7 +28,7 @@ class ConfigUtils(object):
         :return: None
         """
         self.current_path = pstr_current_path
-        self.pageobject_dir_path = self.get_features_dirpath() + os.path.sep + "api"
+        self.pageobject_dir_path = self.get_pageobjects_dirpath() + os.path.sep + "api"
         self.base_config = self.read_base_config_file()
 
 
@@ -39,11 +39,8 @@ class ConfigUtils(object):
 
         :return: String
         """
-        try:
-            str_filepath = "."+ os.path.sep + "configurations" + os.path.sep + "config_api.yml"
-            return str_filepath
-        except Exception as e:
-            print("Error in get_config_filepath method-->" + str(e))
+        str_filepath = "."+ os.path.sep + "configurations" + os.path.sep + "config_api.yml"
+        return str_filepath
 
     def read_base_config_file(self):
         """
@@ -52,73 +49,42 @@ class ConfigUtils(object):
 
         :return: Dictionary
         """
-        try:
-            count = 0
-            config = None
-            while config is None and count < 30:
-                try:
-                    with open(self.get_config_filepath(), 'r') as config_yml:
-                        config = yaml.load(config_yml)
-                except Exception as e:
-                    pass
-                count = count + 1
-                time.sleep(1)
-            if config is None:
-                raise Exception("Error Occurred while reading a config file")
-            return config
-        except Exception as e:
-            print("Error in read_base_config_file method-->" + str(e))
-            return None
+
+        count = 0
+        config = None
+        while config is None and count < 30:
+            with open(self.get_config_filepath(), 'r') as config_yml:
+                config = yaml.load(config_yml)
+            count = count + 1
+            time.sleep(1)
+        if config is None:
+            raise Exception("Error Occurred while reading a config file")
+        return config
 
 
 
-    def get_project_path(self):
+    def get_pageobjects_dirpath(self):
         """
         Description:
-            |  This method fetches path of the root Project folder
+            |  This method fetches path of the pageObjects directory
 
         :return: String
         """
-        try:
-            return os.path.dirname(self.pageobject_dir_path)
-        except Exception as e:
-            print("Error in get_project_path method-->" + str(e))
+        str_currentdir_path = self.current_path
+        str_currentdir_name = os.path.basename(str_currentdir_path)
+        while not str_currentdir_name == "pageObjects":
+            if os.sep + "pageObjects" in str_currentdir_path:
+                str_currentdir_path = os.path.dirname(os.path.abspath(str_currentdir_path))
+                str_currentdir_name = os.path.basename(str_currentdir_path)
 
-    def get_features_dirpath(self):
-        """
-        Description:
-            |  This method fetches path of the features directory
+            else:
+                str_currentdir_path = os.path.abspath(str_currentdir_path) + os.sep + "pageObjects"
+                str_currentdir_name = os.path.basename(str_currentdir_path)
 
-        :return: String
-        """
-        try:
-            str_currentdir_path = self.current_path
-            str_currentdir_name = os.path.basename(str_currentdir_path)
-            while not str_currentdir_name == "pageObjects":
-                if os.sep + "pageObjects" in str_currentdir_path:
-                    str_currentdir_path = os.path.dirname(os.path.abspath(str_currentdir_path))
-                    str_currentdir_name = os.path.basename(str_currentdir_path)
-
-                else:
-                    str_currentdir_path = os.path.abspath(str_currentdir_path) + os.sep + "pageObjects"
-                    str_currentdir_name = os.path.basename(str_currentdir_path)
-
-            return str_currentdir_path
-        except Exception as e:
-            print("Error in get_features_dirpath method-->" + str(e))
+        return str_currentdir_path
 
 
-    def get_configuration_dirpath(self):
-        """
-        Description:
-            |  This method fetches path of the features/configuration directory
 
-        :return: String
-        """
-        try:
-            return os.path.join(self.pageobject_dir_path, "configuration")
-        except Exception as e:
-            print("Error in get_configuration_dirpath method-->" + str(e))
 
     def get_valuefromyaml_keypath(self, pstr_yaml_filepath, pstr_keypath, pstr_delimiter='/'):
         """
@@ -135,13 +101,10 @@ class ConfigUtils(object):
             |  An example of pstr_keypath is root/level1/level2/key
 
         """
-        try:
-            with open(pstr_yaml_filepath, 'r') as config_yml:
-                config = yaml.load(config_yml)
-            lst_key = pstr_keypath.split(pstr_delimiter)
-            return reduce(operator.getitem, lst_key, config)
-        except Exception as e:
-            print('Error in get_valuefromyaml_keypath method -->' + str(e))
+        with open(pstr_yaml_filepath, 'r') as config_yml:
+            config = yaml.load(config_yml)
+        lst_key = pstr_keypath.split(pstr_delimiter)
+        return reduce(operator.getitem, lst_key, config)
 
     def get_valuefrom_configobject(self, pobj_config, pstr_keypath, pstr_delimiter='/'):
         """
@@ -158,11 +121,8 @@ class ConfigUtils(object):
             |  An example of pstr_keypath is root/level1/level2/key
 
         """
-        try:
-            lst_key = pstr_keypath.split(pstr_delimiter)
-            return reduce(operator.getitem, lst_key, pobj_config)
-        except Exception as e:
-            print('Error in get_valuefrom_configobject method-->' + str(e))
+        lst_key = pstr_keypath.split(pstr_delimiter)
+        return reduce(operator.getitem, lst_key, pobj_config)
 
 
     def fetch_base_url(self):
@@ -172,13 +132,10 @@ class ConfigUtils(object):
 
         :return: String
         """
-        try:
-            str_execution_environment = self.fetch_execution_environment()
-            str_environment_type = self.fetch_environment_type()
-            str_base_url = self.base_config["env"][str_execution_environment][str_environment_type]["base_url"]
-            return str_base_url
-        except Exception as e:
-            print("Error in fetch_base_url method-->" + str(e))
+        str_execution_environment = self.fetch_execution_environment()
+        str_environment_type = self.fetch_environment_type()
+        str_base_url = self.base_config["env"][str_execution_environment][str_environment_type]["base_url"]
+        return str_base_url
 
     def fetch_environment_type(self):
         """
@@ -187,10 +144,7 @@ class ConfigUtils(object):
 
         :return: String
         """
-        try:
-            return self.base_config.get("environment_type")
-        except Exception as e:
-            print("Error in fetch_environment_type method-->" + str(e))
+        return self.base_config.get("environment_type")
 
     def fetch_execution_environment(self):
         """
@@ -199,40 +153,30 @@ class ConfigUtils(object):
 
         :return: String
         """
-        try:
-            return self.base_config.get("execution_environment")
-        except Exception as e:
-            print("Error in fetch_execution_environment method-->" + str(e))
-
+        return self.base_config.get("execution_environment")
 
 
     def fetch_servicedescription_path(self):
         """
         Description:
-            |  This method fetches path of the features/services/service_description directory
+            |  This method fetches path of the pageObjects/api/service_description directory
 
         :return: String
         """
-        try:
-            str_service_description_path = self.base_config["service_description"]
-            str_service_description_path = os.path.join(self.pageobject_dir_path, str_service_description_path)
-            return str_service_description_path
-        except Exception as e:
-            print("Error in fetch_servicedescription_path method-->" + str(e))
+        str_service_description_path = self.base_config["service_description"]
+        str_service_description_path = os.path.join(self.pageobject_dir_path, str_service_description_path)
+        return str_service_description_path
 
     def fetch_servicepayload_path(self):
         """
         Description:
-            |  This method fetches path of the features/services/payloads directory
+            |  This method fetches path of the pageObjects/api/services/payloads directory
 
         :return: String
         """
-        try:
-            str_service_payloads_path = self.base_config["service_payloads"]
-            str_service_payloads_path = os.path.join(self.pageobject_dir_path, str_service_payloads_path)
-            return str_service_payloads_path
-        except Exception as e:
-            print("Error in fetch_servicepayload_path method-->" + str(e))
+        str_service_payloads_path = self.base_config["service_payloads"]
+        str_service_payloads_path = os.path.join(self.pageobject_dir_path, str_service_payloads_path)
+        return str_service_payloads_path
 
 
 
@@ -246,22 +190,19 @@ class ConfigUtils(object):
 
         :return: List [str_username, str_password]
         """
-        try:
-            str_username =''
-            str_password=''
-            str_execution_environment = self.fetch_execution_environment()
-            str_environment_type = self.fetch_environment_type()
-            if pstr_user_account_type == "default_user":
-                str_username = \
-                self.base_config["env"][str_execution_environment][str_environment_type][pstr_user_account_type][
-                    "username"]
-                str_password = \
-                self.base_config["env"][str_execution_environment][str_environment_type][pstr_user_account_type][
-                    "password"]
+        str_username =''
+        str_password=''
+        str_execution_environment = self.fetch_execution_environment()
+        str_environment_type = self.fetch_environment_type()
+        if pstr_user_account_type == "default_user":
+            str_username = \
+            self.base_config["env"][str_execution_environment][str_environment_type][pstr_user_account_type][
+                "username"]
+            str_password = \
+            self.base_config["env"][str_execution_environment][str_environment_type][pstr_user_account_type][
+                "password"]
 
-            return str_username, str_password
-        except Exception as e:
-            print("Error in fetch_login_credentials method-->" + str(e))
+        return str_username, str_password
 
     def get_servicedescription(self, pstr_service_desc_relfilepath, pstr_keypath):
         """
@@ -294,33 +235,30 @@ class ConfigUtils(object):
                 target_url: target_url_1
 
         """
-        try:
-            dict_service_desc = {}
-            str_service_desc_path = os.path.join(self.fetch_servicedescription_path(), pstr_service_desc_relfilepath)
-            dict_service_description = self.get_valuefromyaml_keypath(str_service_desc_path, pstr_keypath)
+        dict_service_desc = {}
+        str_service_desc_path = os.path.join(self.fetch_servicedescription_path(), pstr_service_desc_relfilepath)
+        dict_service_description = self.get_valuefromyaml_keypath(str_service_desc_path, pstr_keypath)
 
-            dict_service_desc["target_url"] = self.fetch_base_url()
+        dict_service_desc["target_url"] = self.fetch_base_url()
 
 
-            dict_service_desc["method"] = dict_service_description.get("method")
-            dict_service_desc["endpoint"] = dict_service_description.get("endpoint")
-            if dict_service_description.get("queryparams") == "None":
-                dict_service_desc["queryparams"] = ""
-            else:
-                dict_service_desc["queryparams"] = dict_service_description.get("queryparams")
-            if dict_service_description.get("headers") == "None":
-                dict_service_desc["headers"] = {}
-            else:
-                dict_service_desc["headers"] = dict_service_description.get("headers")
-            dict_service_desc["payload"] = dict_service_description.get("payload", "None")
-            if not dict_service_desc["payload"] == "None":
-                str_payload_path = os.path.join(self.fetch_servicepayload_path(), dict_service_desc["payload"])
-                with open(str_payload_path, 'r') as file:
-                    str_file_data = file.read()
-                    dict_service_desc["payload"] = str_file_data
-            return dict_service_desc
-        except Exception as e:
-            print("Error in get_servicedescription method-->" + str(e))
+        dict_service_desc["method"] = dict_service_description.get("method")
+        dict_service_desc["endpoint"] = dict_service_description.get("endpoint")
+        if dict_service_description.get("queryparams") == "None":
+            dict_service_desc["queryparams"] = ""
+        else:
+            dict_service_desc["queryparams"] = dict_service_description.get("queryparams")
+        if dict_service_description.get("headers") == "None":
+            dict_service_desc["headers"] = {}
+        else:
+            dict_service_desc["headers"] = dict_service_description.get("headers")
+        dict_service_desc["payload"] = dict_service_description.get("payload", "None")
+        if not dict_service_desc["payload"] == "None":
+            str_payload_path = os.path.join(self.fetch_servicepayload_path(), dict_service_desc["payload"])
+            with open(str_payload_path, 'r') as file:
+                str_file_data = file.read()
+                dict_service_desc["payload"] = str_file_data
+        return dict_service_desc
 
 
 

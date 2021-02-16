@@ -20,9 +20,10 @@ def setup(browser):
                                       desired_capabilities=capabilities)
             print("Launching chrome browser in Windows.........")
         elif platform == "darwin":
-            driver = webdriver.Chrome(executable_path="." + os.sep + "browsers" + os.sep + "chromedriver")
+            driver = webdriver.Chrome()
             print("Launching chrome driver in Mac")
-    return driver
+    yield driver
+    driver.quit()
 
 def pytest_addoption(parser):    # This will get the value from CLI /hooks
     parser.addoption("--browser")
