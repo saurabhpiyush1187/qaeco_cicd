@@ -72,22 +72,6 @@ Sample code:
 
 In the above snippet , binary is set to chrome path installed in my system, you can change it you yours.
 
-or you can use the default driver binary included in the chromedriver(project)
-
-Sample code
-      
-
-      def setup(browser):
-        global driver
-        
-        if browser=='chrome':
-            if platform == "win32":
-                driver=webdriver.Chrome(executable_path="."+os.sep +"browsers"+os.sep +"chromedriver.exe")
-                print("Launching chrome browser in Windows.........")
-            elif platform =="darwin":
-                driver=webdriver.Chrome(executable_path="."+os.sep +"browsers"+os.sep +"chromedriver")
-                print("Launching chrome driver in Mac")
-        return driver
 
 #### **Method B**: Mac
 
@@ -106,17 +90,10 @@ Please follow the steps below:
 
 
 
-            python -m venv env
-            source env/bin/activate
-            pip install -r requirements.txt
-   
-            or 
-
-            python -m venv env
-            source env/Scripts/activate
-            pip install -r requirements.txt
+            python3 -m venv env
+            source venv/bin/activate
+            pip3 install -r requirements.txt
             
-
 
     This will install all the dependent libraries
 
@@ -133,17 +110,7 @@ Please follow the steps below:
 4. **Troubleshooting in Mac**
     
     If you have any issue with chromedriver, you can copy **./Browsers/chromedriver** to **/usr/local/bin**
-    and edit the following code in **./testCases/conftest.py**
 
-    Change this:
-    
-            elif platform =="darwin":
-            driver=webdriver.Chrome(executable_path="."+os.sep +"Browsers"+os.sep +"chromedriver")   
-            
-    To this:
-    
-            elif platform =="darwin":
-            driver=webdriver.Chrome()
     
 
 ## **API Automation**

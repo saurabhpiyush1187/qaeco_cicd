@@ -8,16 +8,9 @@ from sys import platform
 @pytest.fixture()
 def setup(browser):
     global driver
-    capabilities = {'browserName': 'chrome',
-                    "chromeOptions": {
-                        'binary': "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
-                    }
-                    }
-
     if browser == 'chrome':
         if platform == "win32":
-            driver = webdriver.Chrome(executable_path="." + os.sep + "browsers" + os.sep + "chromedriver.exe",
-                                      desired_capabilities=capabilities)
+            driver = webdriver.Chrome(executable_path="." + os.sep + "browsers" + os.sep + "chromedriver.exe")
             print("Launching chrome browser in Windows.........")
         elif platform == "darwin":
             driver = webdriver.Chrome()
