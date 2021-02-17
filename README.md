@@ -16,6 +16,7 @@ This repo contains the UI as well as API automation cases that were developed as
 ## **Framework**
 For this assignment, I used pytest framework - a python-based test automation framework suite. It is a Test Driven Development (TDD) framework comprising of the following packages:
 - **pytest** (for executing test plans in TDD format)
+- **unittest** (for executing unit tests)  
 - **requests library** (to automate API)
 - **selenium-webdriver** (to automate UI and saving failed scenarios screenshots)
 - **pytest-html** (for reporting)
