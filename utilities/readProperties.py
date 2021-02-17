@@ -3,7 +3,7 @@ import os
 import json
 
 config=configparser.RawConfigParser()
-config.read("."+os.sep+"Configurations"+os.sep+"config.ini")
+config.read("."+os.sep+"configurations"+os.sep+"config.ini")
 
 class ReadConfig:
     @staticmethod
