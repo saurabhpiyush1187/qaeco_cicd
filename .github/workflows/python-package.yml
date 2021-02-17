@@ -29,5 +29,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Test with pytest
       run: |
-        set_up.bat
+        python3 -m venv env
+        source venv/bin/activate
+        pip3 install -r requirements.txt
         pytest -s -v -m "unittest" --html=./reports/report.html
