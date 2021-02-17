@@ -29,5 +29,5 @@ jobs:
         pip install -r requirements.txt
     - name: Test with pytest
       run: |
-        set_up.bat
-        run_ui.bat
+        .\\venv\Scripts\activate.bat
+        python -m pytest -s -v -m "ui" --html=./reports/report.html --browser chrome
