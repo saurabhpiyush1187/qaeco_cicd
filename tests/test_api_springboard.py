@@ -5,7 +5,11 @@ from pageObjects.api.create_board import CreateBoard
 from pageObjects.api.create_card import Createcard
 
 
-class Test_Springboard_API:
+class Test_springboard_api:
+    """
+                        Description:
+                            |  This class provides methods to test the workflow through api calls
+            """
     logger = LogGen.loggen()
     common_utils = CommonUtils()
     create_board = CreateBoard()
@@ -16,6 +20,11 @@ class Test_Springboard_API:
     @pytest.mark.api
     @pytest.mark.smoke
     def test_login(self):
+        """
+            Description:
+                |  This is a login test.
+
+            """
         self.logger.info("****Started Login  api Test****")
         token = self.common_utils.springboard_get_authtoken()
         if token is not None:
@@ -29,8 +38,12 @@ class Test_Springboard_API:
     @pytest.mark.api
     @pytest.mark.smoke
     def test_create_and_verify_board(self):
+        """
+                    Description:
+                        |  This is a test for creation and verification of board.
+        """
         self.logger.info("****Started create and verify Board Test****")
-        uuid,str_token= self.create_board.create_board()
+        uuid= self.create_board.create_board()[0]
         if uuid is not None:
             assert self.create_board.verify_created_board(uuid)
             self.logger.info("*** Test verify board passed****")
@@ -43,6 +56,10 @@ class Test_Springboard_API:
     @pytest.mark.api
     @pytest.mark.smoke
     def test_create_and_like_card(self):
+        """
+                            Description:
+                                |  This is a test for creating and liking a went well card
+                """
         card_type= "Went well"
         self.logger.info("****Started create and like card Test****")
         self.board_uuid,self.str_token = self.create_board.create_board()
@@ -70,9 +87,12 @@ class Test_Springboard_API:
     @pytest.mark.api
     @pytest.mark.smoke
     def test_create_and_delete_card(self):
+        """
+                            Description:
+                                |  This is a test for creating and deleting a didn't go well card
+                """
         self.logger.info("****Started create and delete card Test****")
         card_type = "Didn't go well"
-        self.logger.info("****Started create and like card Test****")
         self.board_uuid, self.str_token = self.create_board.create_board()
         if self.board_uuid is not None:
             card_column_uuid = self.create_card.get_card_column_uuid(self.board_uuid, self.str_token, card_type)
@@ -96,7 +116,3 @@ class Test_Springboard_API:
             self.logger.info("****Some error in Board creation--Test case failed****")
             self.logger.info("****Ended create and Deleted card Test Unsuccessfull****")
             assert False
-
-
-
-

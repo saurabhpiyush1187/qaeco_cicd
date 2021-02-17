@@ -3,13 +3,13 @@ from utilities.customLogger import LogGen
 import os
 from utilities.readProperties import ReadConfig
 from core.ui.ui_helper import UIHelper
-import time
 
 class CreateCard:
     # Create card Page
     card_locators = cardlocators()
     logger = LogGen.loggen()
     explicit_wait = ReadConfig.getexplicitwait()
+    card_modal_header = ReadConfig.getvaluesfrom_json('header', 'sprint_board_modal')
 
     def __init__(self,driver):
         self.driver=driver
@@ -18,16 +18,17 @@ class CreateCard:
 
     def clickCard(self, pstr_type):
         pstr_card_type = self.card_locators.pstr_type_card.format(pstr_type)
-        time.sleep(3)
         bln_card_type = self.ui_helper.is_element_displayed(pstr_card_type)
-        if bln_card_type:
+        pstr_modal_header = self.card_locators.pstr_addcard_model.format(self.card_modal_header)
+        bln_load_card = self.ui_helper.wait_for_invisibility_web_element(pstr_modal_header)
+        if bln_card_type and bln_load_card:
             self.ui_helper.click(pstr_card_type)
             self.logger.info("****Card type is clicked****  " + pstr_type)
             assert True
         else:
             self.logger.info("****card type not found or not clickable****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_createCard.png")
-            self.driver.quit()
+            self.driver.close()
             assert False
 
 
@@ -41,7 +42,7 @@ class CreateCard:
         else:
             self.logger.info("****Card Modal header not verified****Please see screenshot")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_modal_header.png")
-            self.driver.quit()
+            self.driver.close()
             return False
 
 
@@ -53,11 +54,10 @@ class CreateCard:
         else:
             self.logger.info("****Delay in page loading****Please see screenshot")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_create_board_fail.png")
-            self.driver.quit()
+            self.driver.close()
             assert False
 
     def create_card(self,pstr_title, pstr_description):
-        self.driver.implicitly_wait(3)
         bln_title_name = self.ui_helper.is_element_displayed(self.card_locators.pstr_title)
         if bln_title_name:
             self.ui_helper.type(self.card_locators.pstr_title,pstr_title)
@@ -65,7 +65,7 @@ class CreateCard:
         else:
             self.logger.info("****Unable to enter title name****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_createCard_title.png")
-            self.driver.quit()
+            self.driver.close()
             return False
 
         bln_description = self.ui_helper.is_element_displayed(self.card_locators.pstr_description)
@@ -75,7 +75,7 @@ class CreateCard:
         else:
             self.logger.info("****Unable to enter description****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_createCard_title.png")
-            self.driver.quit()
+            self.driver.close()
             return False
 
         bln_submit_create_card = self.ui_helper.is_element_displayed(self.card_locators.pstr_addcard_button)
@@ -85,7 +85,7 @@ class CreateCard:
         else:
             self.logger.info("****Unable to click Add a card button****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_createBoard_button.png")
-            self.driver.quit()
+            self.driver.close()
             return False
 
 
@@ -104,32 +104,35 @@ class CreateCard:
             else:
                 self.logger.info("****Unable to verify card details****")
                 self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_createcard_details_verify_fail.png")
-                self.driver.quit()
+                self.driver.close()
                 return False
         else:
             self.logger.info("****Error in creating card****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_createcard_details_verify_fail.png")
-            self.driver.quit()
+            self.driver.close()
             return False
 
     def click_activity(self,pstr_card_type, pstr_activity):
-        time.sleep(3)
-        if pstr_activity == "like":
-            pstr_activity_val = "0"
-        else:
-            pstr_activity_val = pstr_activity
-        pstr_activity_actual = self.card_locators.pstr_activity.format(pstr_card_type,pstr_activity_val)
-        bln_pstr_activity = self.ui_helper.is_element_displayed(pstr_activity_actual)
-        if bln_pstr_activity:
-            self.ui_helper.click(pstr_activity_actual)
-            self.logger.info(pstr_activity +"****Activity clicked****")
-            assert True
-        else:
-            self.logger.info("****Error in clicking activity****")
-            self.driver.save_screenshot(
-                "." + os.sep + "Screenshots" + os.sep + "test_login_createcard_click_activity_verify_fail.png")
-            self.driver.quit()
-            assert False
+        self.wait_board_page_to_load()
+        pstr_modal_header = self.card_locators.pstr_addcard_model.format(self.card_modal_header)
+        bln_load_card = self.ui_helper.wait_for_invisibility_web_element(pstr_modal_header)
+        if bln_load_card:
+            if pstr_activity == "like":
+                pstr_activity_val = "0"
+            else:
+                pstr_activity_val = pstr_activity
+            pstr_activity_actual = self.card_locators.pstr_activity.format(pstr_card_type,pstr_activity_val)
+            bln_pstr_activity = self.ui_helper.is_element_displayed(pstr_activity_actual)
+            if bln_pstr_activity:
+                self.ui_helper.click(pstr_activity_actual)
+                self.logger.info(pstr_activity +"****Activity clicked****")
+                assert True
+            else:
+                self.logger.info("****Error in clicking activity****")
+                self.driver.save_screenshot(
+                    "." + os.sep + "Screenshots" + os.sep + "test_login_createcard_click_activity_verify_fail.png")
+                self.driver.close()
+                assert False
 
 
     def verify_activity(self,pstr_card,pstr_activity,**kwargs):
@@ -147,7 +150,7 @@ class CreateCard:
                 self.logger.info("****Like not verified****" + "Actual Like is " + str_actual_like)
                 self.driver.save_screenshot(
                     "." + os.sep + "Screenshots" + os.sep + "test_login_createcard_like_activity_verify_fail.png")
-                self.driver.quit()
+                self.driver.close()
                 return False
 
     def verify_delete_modal(self, pstr_delete_header, pstr_delete_question):
@@ -162,12 +165,12 @@ class CreateCard:
             else:
                 self.logger.info("****Delete modal pop up is not verified****")
                 self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_verify_delete.png")
-                self.driver.quit()
+                self.driver.close()
                 return False
         else:
             self.logger.info("****Delete modal pop up not showning up****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_verify_delete.png")
-            self.driver.quit()
+            self.driver.close()
             return False
 
 
@@ -180,7 +183,7 @@ class CreateCard:
         else:
             self.logger.info("****Delete modal pop up not showning up****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_verify_delete.png")
-            self.driver.quit()
+            self.driver.close()
             assert False
 
     def verify_delete_card(self,pstr_card_type):
@@ -192,7 +195,7 @@ class CreateCard:
         else:
             self.logger.info("****Card is still showing up****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_verify_delete_card.png")
-            self.driver.quit()
+            self.driver.close()
             return False
 
 
