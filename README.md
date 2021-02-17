@@ -16,6 +16,7 @@ This repo contains the UI as well as API automation cases that were developed as
 ## **Framework**
 For this assignment, I used pytest framework - a python-based test automation framework suite. It is a Test Driven Development (TDD) framework comprising of the following packages:
 - **pytest** (for executing test plans in TDD format)
+- **unittest** (for executing unit tests)  
 - **requests library** (to automate API)
 - **selenium-webdriver** (to automate UI and saving failed scenarios screenshots)
 - **pytest-html** (for reporting)
@@ -50,7 +51,7 @@ If you do not want to switch to virtual environment,use the following command to
     pip install -r requirements.txt
 
 Unittest cases are stored in ./tests/test_unit_tests.py. Results can be viewed in the console
-![](eco_unit_test.png)
+![](eco_unit_test.PNG)
 
 Unit tests are created to handle
 - ####positive numbers
@@ -152,7 +153,7 @@ Please see runs here
 To test cross-operating systems , I have created 2 workflows for windows and linux
 
 ## **Framework Architecture**
-![](eco_architecture.png)
+![](eco_architecture.PNG)
 
 ## **UI Test Plans**
 ![](eco_test_cases.PNG)
