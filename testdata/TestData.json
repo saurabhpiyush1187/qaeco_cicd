@@ -1,53 +1,51 @@
 {
-    "page_urls":
-    {
-        "login_url": "/auth/login",
-        "create_board": "/boards/create",
-        "board_page" : "/boards"
+    "job_page": {
+        "title": "Jobs.Economist.com"
+    },
+    "navigation_bar_items": {
+        "Home": "",
+        "Find a job": "/jobs/",
+        "Job alerts": "/newalert/",
+        "Search recruiters": "/employers/",
+        "Jobs blog": "/careers/"
+    },
+    "navigation_bar_headers": {
+        "Home": "Find a job on The Economist Jobs Board",
+        "Find a job": "Found",
+        "Job alerts": "Create a job alert",
+        "Search recruiters": "Search",
+        "Jobs blog": "Jobs blog"
+    },
+    "search_bar": {
+        "position": "e.g. Director",
+        "location": "e.g. UK"
+    },
+    "sector_list": {
+        "sector_1": "Banking and finance",
+        "sector_2": "Business services",
+        "sector_3": "Government",
+        "sector_4": "Academia",
+        "sector_5": "Primary and utility",
+        "sector_6": "Charity",
+        "sector_7": "International public sector",
+        "sector_8": "NGO",
+        "sector_9": "Consultancy",
+        "sector_10": "Development",
+        "sector_11": "Health",
+        "sector_12": "Humanitarian",
+        "sector_13": "Other"
+    },
+    "other_link": {
+        "Sign in": "/logon/",
+        "Create account": "/register/"
+    },
+    "other_headers": {
+        "Sign in": "Sign in",
+        "Create account": "Create an account"
+    },
+
+    "apply_job": {
+        "Sector_1": "Banking and finance",
+        "Sector_2": "Business services"
     }
-    ,
-    "create-board_data":
-    {
-        "session_name": "My first board",
-        "owner" : "Sennder",
-        "success_message":"Created"
-    },
-    "title":
-    {
-        "create_board": "Create a Board - Sprint Boards"
-    },
-    "header":
-    {
-        "create_board": "Create a Board",
-        "sprint_board_modal" : "Add a Card"
-    },
-
-    "card_type":
-    {
-        "green": "Went well",
-        "red" : "Didn't go well"
-    },
-
-    "went_well_data":
-    {
-        "title": "Goal was achieved",
-        "description" : "Sprint was well planned"
-    },
-
-    "not_went_well_data":
-    {
-        "title": "Goal was not achieved",
-        "description" : "",
-        "description_displayed" : "No description provided.",
-        "delete_header" : "Delete Card",
-        "delete_question":"Are you sure you want to continue?"
-    },
-
-    "card_activity":
-    {
-        "went_well": "like",
-        "like_count" : 1,
-        "not went well": "Delete"
-    }
-
 }

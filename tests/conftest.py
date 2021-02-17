@@ -7,9 +7,16 @@ from sys import platform
 @pytest.fixture()
 def setup(browser):
     global driver
+    capabilities = {'browserName': 'chrome',
+                    "chromeOptions": {
+                        'binary': "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+                    }
+                    }
+
     if browser == 'chrome':
         if platform == "win32":
-            driver = webdriver.Chrome(executable_path="." + os.sep + "browsers" + os.sep + "chromedriver.exe")
+            driver = webdriver.Chrome(executable_path="." + os.sep + "browsers" + os.sep + "chromedriver.exe",
+                                      desired_capabilities=capabilities)
             print("Launching chrome browser in Windows.........")
         elif platform == "darwin":
             driver = webdriver.Chrome()
@@ -32,8 +39,9 @@ def teardown():
 
 # It is hook for Adding Environment info to HTML Report
 def pytest_configure(config):
-    config._metadata['Project Name'] = 'Sennder QA Assignment'
-    config._metadata['Module Name'] = 'Sprint boards'
+    config._metadata['Project Name'] = 'Economist QA Assignment'
+    config._metadata['Module Name'] = 'Job page'
     config._metadata['Tester'] = 'Saurabh'
+
 
 

@@ -1,12 +1,12 @@
 # QA Assignment submitted by **Saurabh Piyush**
-This repo contains the UI as well as API automation cases that were developed as part of the assignment, to qualify for the post of Senior Automation Engineer at Sennder
+This repo contains the UI as well as API automation cases that were developed as part of the assignment, to qualify for the post of QE III at Economist
 
 ## Index
 1. [Framework](#Framework)
 2. [Run the Automation Suite](#Run-the-Automation-Suite)
     1. [Method A Windows](#Method-A-Windows)
     2. [Method B Mac](#Method-B-Mac)
-3. [API Automation](#---API-Automation)
+3. [UI Test Plans](#UI-Test-Plans)
 4. [Framework Architecture](#Framework-Architecture)
 5. [Why this framework?](#Why-this-framework?)
 6. [Contact](#Contact)
@@ -16,14 +16,14 @@ For this assignment, I used pytest framework - a python-based test automation fr
 - **pytest** (for executing test plans in TDD format)
 - **requests library** (to automate API)
 - **selenium-webdriver** (to automate UI and saving failed scenarios screenshots)
-- **pytest--html** (for reporting)
+- **pytest-html** (for reporting)
 - **logging module** (for logging - tracking events that occur while software runs)
 
 ### **Run the Automation Suite**
 First you need to clone the repo to your local
 
 - Clone with HTTPS:     
-    `git clone https://github.com/saurabhpiyush1187/qaassigment.git`
+    `git clone https://github.com/saurabhpiyush1187/qaeconomist.git`
 
 Then you need to follow either of the below two methods
 #### **Method A**: Windows
@@ -36,13 +36,31 @@ Open the command line and point it to the directory of the repo on your system. 
 That's it.
 It will switch to virtual environment and install necessary modules. After executing above batch file, the user will enter the virtual environment. Execute another file to run all the api and ui cases
 
-    (venv)C:\~\qaassigment> run.bat
-This will start the execution of all the test cases
+    (venv)C:\~\qaassigment> run_ui.bat
+This will start the execution of all the test cases (UI)
+
+Execute the following cases to run the Unittest cases:
+
+    (venv)C:\~\qaassigment> run_unittest.bat
+
+If you do not want to switch to virtual environment,use the following command to install requirements
+
+    pip install -r requirements.txt
+
+Unittest cases are stored in ./tests/test_unit_tests.py. Results can be viewed in the console
+![](eco_unit_test.png)
+
+Unit tests are created to handle
+- ####positive numbers
+- ####negative numbers
+- ####decimals
+- ####divide by zero
+- ####infinite numers
 
 **View HTML Report**
-The automation framework is created with the support of **pytest--html**.To view results after execution. Open
+The automation framework is created with the support of **pytest-html**.To view results after execution. Open
 
->reports/report.html
+>.reports/report.html
 
 **Troubleshooting**
 
@@ -102,29 +120,27 @@ Please follow the steps below:
     Now, simply run the command
 
 
-    python -m pytest -s -v -m "smoke" --html=./Reports/report.html --browser chrome
+    python -m pytest -s -v -m "ui" --html=./reports/report.html --browser chrome
 
          or
 
-    py -m pytest -s -v -m "smoke" --html=./Reports/report.html --browser chrome
+    py -m pytest -s -v -m "ui" --html=./reports/report.html --browser chrome
+
+ For Unit test cases
+    
+    py -m pytest -s -v -m "unittest" --html=./reports/report.html
+
 4. **Troubleshooting in Mac**
     
     If you have any issue with chromedriver, you can copy **./Browsers/chromedriver** to **/usr/local/bin**
 
     
 
-## **API Automation**
-I have also automate the cases through cases through api.Automated API tests provide much faster test results and significantly accelerate development workflows. To start with, API tests do not need to wait for GUI to be ready and can be performed early in the agile development cycle, which helps you speed up the feedback loop and catch issues faster.
+## **Test Plans**
+![](eco_test_cases.PNG)
 
-If you want to run only API cases, simply run the command(Mac) or edit the same in **run.bat**(Windows):
-    
-    python -m pytest -s -v -m "api" --html=./Reports/report.html
-
-If you want to run only UI cases, simply run the command(Mac) or edit the same in **run.bat**(Windows):
-
-    python -m pytest -s -v -m "ui" --html=./Reports/report.html --browser chrome
 ## **Framework Architecture**
-![](architecture.png)
+![](eco_architecture.png)
 
 ## **Why this framework?**
 - ### **Open Source and Compatible**
@@ -159,7 +175,7 @@ If you want to run only UI cases, simply run the command(Mac) or edit the same i
 
 
 - ### **Integrated API automation**
-    The framework uses python requests which is simple, yet elegant HTTP library. There is no need for any third party application to test and automate APIs.The accelerated execution speed of automated API tests leads to more effective resource consumption and lower overall testing costs.
+    The framework also supports python requests which is simple, yet elegant HTTP library. There is no need for any third party application to test and automate APIs.The accelerated execution speed of automated API tests leads to more effective resource consumption and lower overall testing costs.
 
 - ### **Support for CI/CD**
     Pytest supports generating reports in JUnit format. By creating the XML file CI/CD systems like Jenkins can read the log files.
