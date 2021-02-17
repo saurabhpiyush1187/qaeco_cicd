@@ -8,9 +8,10 @@ This repo contains the UI as well as API automation cases that were developed as
     2. [Method B Mac](#Method-B-Mac)
 3. [CI CD Support](#CI-CD-Support) 
 4. [UI Test Plans](#UI-Test-Plans)
-5. [Framework Architecture](#Framework-Architecture)
-6. [Why this framework?](#Why-this-framework?)
-7. [Contact](#Contact)
+5. [Data Flow UI](#Data-Flow-UI)
+6. [Framework Architecture](#Framework-Architecture)
+7. [Why this framework?](#Why-this-framework?)
+8. [Contact](#Contact)
 
 ## **Framework**
 For this assignment, I used pytest framework - a python-based test automation framework suite. It is a Test Driven Development (TDD) framework comprising of the following packages:
@@ -150,6 +151,9 @@ Please see runs here
 
 ## **UI Test Plans**
 ![](eco_test_cases.PNG)
+
+## **Data Flow UI**
+![](dfd_ui_economist.PNG)
 
 ## **Framework Architecture**
 ![](eco_architecture.png)
