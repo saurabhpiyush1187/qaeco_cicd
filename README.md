@@ -1,5 +1,5 @@
 # QA Assignment submitted by **Saurabh Piyush**
-This repo contains the UI as well as API automation cases that were developed as part of the assignment, to qualify for the post of QE III at Economist
+This repo contains the unittests and UI automation cases that were developed as part of the assignment, to qualify for the post of QE III at Economist
 
 ## Index
 1. [Framework](#Framework)
@@ -59,6 +59,8 @@ Unit tests are created to handle
 - ####decimals
 - ####divide by zero
 - ####infinite numers
+
+Since the **unittest** and **ui automation** tasks were given separately, that is why I have not grouped them together in execution. However, it will be just as easy to group and execute them together.
 
 **View HTML Report**
 The automation framework is created with the support of **pytest-html**.To view results after execution. Open
