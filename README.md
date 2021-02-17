@@ -6,10 +6,11 @@ This repo contains the UI as well as API automation cases that were developed as
 2. [Run the Automation Suite](#Run-the-Automation-Suite)
     1. [Method A Windows](#Method-A-Windows)
     2. [Method B Mac](#Method-B-Mac)
-3. [UI Test Plans](#UI-Test-Plans)
-4. [Framework Architecture](#Framework-Architecture)
-5. [Why this framework?](#Why-this-framework?)
-6. [Contact](#Contact)
+3. [CI CD Support](#CI-CD-Support) 
+4. [UI Test Plans](#UI-Test-Plans)
+5. [Framework Architecture](#Framework-Architecture)
+6. [Why this framework?](#Why-this-framework?)
+7. [Contact](#Contact)
 
 ## **Framework**
 For this assignment, I used pytest framework - a python-based test automation framework suite. It is a Test Driven Development (TDD) framework comprising of the following packages:
@@ -23,7 +24,7 @@ For this assignment, I used pytest framework - a python-based test automation fr
 First you need to clone the repo to your local
 
 - Clone with HTTPS:     
-    `git clone https://github.com/saurabhpiyush1187/qaeconomist.git`
+    `git clone https://github.com/saurabhpiyush1187/qaeco_cicd.git`
 
 Then you need to follow either of the below two methods
 #### **Method A**: Windows
@@ -112,6 +113,11 @@ Please follow the steps below:
             source venv/bin/activate
             pip3 install -r requirements.txt
             
+            or 
+            
+            python3 -m venv env
+            source env/bin/activate
+            pip3 install -r requirements.txt
 
     This will install all the dependent libraries
 
@@ -135,8 +141,14 @@ Please follow the steps below:
     If you have any issue with chromedriver, you can copy **./Browsers/chromedriver** to **/usr/local/bin**
 
     
+## **CI CD Support**
 
-## **Test Plans**
+I have used github Actions to support CI/CD. The job will automatically run cases in case of any push into main branch.
+Please see runs here
+
+    https://github.com/saurabhpiyush1187/qaeco_cicd/actions/runs/574686597
+
+## **UI Test Plans**
 ![](eco_test_cases.PNG)
 
 ## **Framework Architecture**
