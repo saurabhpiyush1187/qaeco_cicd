@@ -7,9 +7,9 @@ This repo contains the UI as well as API automation cases that were developed as
     1. [Method A Windows](#Method-A-Windows)
     2. [Method B Mac](#Method-B-Mac)
 3. [CI CD Support](#CI-CD-Support) 
-4. [UI Test Plans](#UI-Test-Plans)
-5. [Data Flow UI](#Data-Flow-UI)
-6. [Framework Architecture](#Framework-Architecture)
+4. [Framework Architecture](#Framework-Architecture)
+5. [UI Test Plans](#UI-Test-Plans)
+6. [Data Flow UI](#Data-Flow-UI)
 7. [Why this framework?](#Why-this-framework?)
 8. [Contact](#Contact)
 
@@ -147,7 +147,12 @@ Please follow the steps below:
 I have used github Actions to support CI/CD. The job will automatically run cases in case of any push into main branch.
 Please see runs here
 
-    https://github.com/saurabhpiyush1187/qaeco_cicd/actions/runs/574686597
+    https://github.com/saurabhpiyush1187/qaeco_cicd/actions
+
+To test cross-operating systems , I have created 2 workflows for windows and linux
+
+## **Framework Architecture**
+![](eco_architecture.png)
 
 ## **UI Test Plans**
 ![](eco_test_cases.PNG)
@@ -155,8 +160,6 @@ Please see runs here
 ## **Data Flow UI**
 ![](dfd_ui_economist.PNG)
 
-## **Framework Architecture**
-![](eco_architecture.png)
 
 ## **Why this framework?**
 - ### **Open Source and Compatible**
