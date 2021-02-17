@@ -1,8 +1,7 @@
+import os
 import pytest
 from selenium import webdriver
-import os
 from sys import platform
-
 
 
 @pytest.fixture()
@@ -14,9 +13,9 @@ def setup(browser):
             print("Launching chrome browser in Windows.........")
         elif platform == "darwin":
             driver = webdriver.Chrome()
-            print("Launching chrome driver in Mac")
+            print("Launching chrome driver in Mac.....")
     yield driver
-    driver.quit()
+    teardown()
 
 def pytest_addoption(parser):    # This will get the value from CLI /hooks
     parser.addoption("--browser")

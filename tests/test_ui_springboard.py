@@ -35,13 +35,11 @@ class Test_UI_springboard:
     not_well_delete_question = ReadConfig.getvaluesfrom_json('not_went_well_data','delete_question')
 
 
+
     @pytest.fixture()
     def launch_app(self,setup):
         self.driver = setup
         self.lp = LoginPage(self.driver)
-        self.bp = BoardPage(self.driver)
-        self.cp = CreateCard(self.driver)
-        self.ui_helper = UIHelper(self.driver)
         self.driver.maximize_window()
         self.driver.get(self.baseURL + self.login_url)
         # login to application and verify homepage
@@ -50,6 +48,9 @@ class Test_UI_springboard:
     @pytest.mark.smoke
     @pytest.mark.ui
     def test_springboard(self, launch_app):
+        self.bp = BoardPage(self.driver)
+        self.cp = CreateCard(self.driver)
+        self.ui_helper = UIHelper(self.driver)
         self.login_create_board()
         self.card_manipulation()
 
@@ -121,10 +122,3 @@ class Test_UI_springboard:
             self.logger.error("****Card manipulation unsuccessful****")
             self.logger.info("*** Card manipulation test ended****")
             assert False
-
-
-
-
-
-
-

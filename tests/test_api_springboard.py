@@ -43,7 +43,7 @@ class Test_springboard_api:
                         |  This is a test for creation and verification of board.
         """
         self.logger.info("****Started create and verify Board Test****")
-        uuid,str_token= self.create_board.create_board()
+        uuid= self.create_board.create_board()[0]
         if uuid is not None:
             assert self.create_board.verify_created_board(uuid)
             self.logger.info("*** Test verify board passed****")
@@ -93,7 +93,6 @@ class Test_springboard_api:
                 """
         self.logger.info("****Started create and delete card Test****")
         card_type = "Didn't go well"
-        self.logger.info("****Started create and like card Test****")
         self.board_uuid, self.str_token = self.create_board.create_board()
         if self.board_uuid is not None:
             card_column_uuid = self.create_card.get_card_column_uuid(self.board_uuid, self.str_token, card_type)

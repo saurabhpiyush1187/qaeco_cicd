@@ -54,7 +54,7 @@ class ConfigUtils(object):
         config = None
         while config is None and count < 30:
             with open(self.get_config_filepath(), 'r') as config_yml:
-                config = yaml.load(config_yml)
+                config = yaml.load(config_yml,Loader=yaml.FullLoader)
             count = count + 1
             time.sleep(1)
         if config is None:
@@ -102,7 +102,7 @@ class ConfigUtils(object):
 
         """
         with open(pstr_yaml_filepath, 'r') as config_yml:
-            config = yaml.load(config_yml)
+            config = yaml.load(config_yml, Loader=yaml.FullLoader)
         lst_key = pstr_keypath.split(pstr_delimiter)
         return reduce(operator.getitem, lst_key, config)
 

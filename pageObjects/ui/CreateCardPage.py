@@ -9,6 +9,7 @@ class CreateCard:
     card_locators = cardlocators()
     logger = LogGen.loggen()
     explicit_wait = ReadConfig.getexplicitwait()
+    card_modal_header = ReadConfig.getvaluesfrom_json('header', 'sprint_board_modal')
 
     def __init__(self,driver):
         self.driver=driver
@@ -18,7 +19,7 @@ class CreateCard:
     def clickCard(self, pstr_type):
         pstr_card_type = self.card_locators.pstr_type_card.format(pstr_type)
         bln_card_type = self.ui_helper.is_element_displayed(pstr_card_type)
-        pstr_modal_header = self.card_locators.pstr_addcard_model.format('Add a card')
+        pstr_modal_header = self.card_locators.pstr_addcard_model.format(self.card_modal_header)
         bln_load_card = self.ui_helper.wait_for_invisibility_web_element(pstr_modal_header)
         if bln_card_type and bln_load_card:
             self.ui_helper.click(pstr_card_type)
@@ -113,7 +114,7 @@ class CreateCard:
 
     def click_activity(self,pstr_card_type, pstr_activity):
         self.wait_board_page_to_load()
-        pstr_modal_header = self.card_locators.pstr_addcard_model.format('Add a card')
+        pstr_modal_header = self.card_locators.pstr_addcard_model.format(self.card_modal_header)
         bln_load_card = self.ui_helper.wait_for_invisibility_web_element(pstr_modal_header)
         if bln_load_card:
             if pstr_activity == "like":
