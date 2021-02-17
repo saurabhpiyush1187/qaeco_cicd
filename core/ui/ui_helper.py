@@ -81,7 +81,7 @@ class UIHelper():
     def verify_url(self,pstr_old_url, pstr_current_url):
         if 'https' in pstr_old_url:
             pstr_old_url = pstr_old_url.replace('https://','')
-        elif 'http' in pstr_current_url:
+        elif 'http' in pstr_old_url:
             pstr_old_url = pstr_old_url.replace('http://','')
 
 

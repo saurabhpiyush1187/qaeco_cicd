@@ -27,7 +27,7 @@ class LoginPage:
             else:
                 self.logger.info("****Email address box not present****")
                 self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_setusername.png")
-                self.driver.quit()
+                self.driver.close()
                 assert False
 
 
@@ -41,7 +41,7 @@ class LoginPage:
         else:
             self.logger.info("****Password box not present****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_setpassword.png")
-            self.driver.quit()
+            self.driver.close()
             assert False
 
     def clickLogin(self):
@@ -54,7 +54,7 @@ class LoginPage:
         else:
             self.logger.info("****Submit Button not present****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_submit.png")
-            self.driver.quit()
+            self.driver.close()
             assert False
 
     def verify_loginpage(self):
@@ -68,7 +68,7 @@ class LoginPage:
         else:
             self.logger.info("****User is not on the login page****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_loginpage.png")
-            self.driver.quit()
+            self.driver.close()
         return bln_result
 
     def verify_homepage(self):
@@ -80,7 +80,7 @@ class LoginPage:
         else:
             self.logger.info("****User is not on the home page****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_homepage.png")
-            self.driver.quit()
+            self.driver.close()
         return bln_homepage
 
 

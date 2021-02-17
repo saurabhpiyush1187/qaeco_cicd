@@ -29,7 +29,7 @@ class BoardPage:
         else:
             self.logger.info("****Create Board link Not present or clickable****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_createBoard_link.png")
-            self.driver.quit()
+            self.driver.close()
             assert False
 
 
@@ -42,7 +42,7 @@ class BoardPage:
         else:
             self.logger.info("****Page header is different****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_createBoard_header.png")
-            self.driver.quit()
+            self.driver.close()
             return False
 
 
@@ -54,7 +54,7 @@ class BoardPage:
         else:
             self.logger.info("****Unable to enter session name****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_createBoard_session.png")
-            self.driver.quit()
+            self.driver.close()
             return False
 
         bln_owner_drop_down = self.ui_helper.is_element_displayed(self.board_locators.pstr_owner_drop_down)
@@ -64,7 +64,7 @@ class BoardPage:
         else:
             self.logger.info("****Unable to select session name****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_createBoard_owner.png")
-            self.driver.quit()
+            self.driver.close()
             return False
 
         bln_submit_create_board = self.ui_helper.is_element_displayed(self.board_locators.pstr_createboard_button)
@@ -74,7 +74,7 @@ class BoardPage:
         else:
             self.logger.info("****Unable to click create board button****")
             self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_createBoard_button.png")
-            self.driver.quit()
+            self.driver.close()
             return False
 
         bln_pop_up= self.ui_helper.is_element_displayed(self.board_locators.pstr_pop_up)
@@ -86,7 +86,7 @@ class BoardPage:
             else:
                 self.logger.info("***Success message not verified****" + "Expected message: " + str_succes_message + "Actual message: " + str_text)
                 self.driver.save_screenshot("." + os.sep + "Screenshots" + os.sep + "test_login_createBoard_message.png")
-                self.driver.quit()
+                self.driver.close()
                 return False
 
 

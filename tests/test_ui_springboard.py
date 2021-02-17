@@ -35,23 +35,30 @@ class Test_UI_springboard:
     not_well_delete_question = ReadConfig.getvaluesfrom_json('not_went_well_data','delete_question')
 
 
+
     @pytest.fixture()
     def launch_app(self,setup):
         self.driver = setup
+        self.lp = LoginPage(self.driver)
         self.driver.maximize_window()
         self.driver.get(self.baseURL + self.login_url)
+        # login to application and verify homepage
+        assert self.lp.login(self.username, self.password)
 
     @pytest.mark.smoke
     @pytest.mark.ui
-    def test_login_create_board(self, launch_app):
-        self.logger.info("****Started create board Test****")
-        self.lp = LoginPage(self.driver)
+    def test_springboard(self, launch_app):
         self.bp = BoardPage(self.driver)
-        # login to application and verify homepage
-        assert self.lp.login(self.username, self.password)
+        self.cp = CreateCard(self.driver)
+        self.ui_helper = UIHelper(self.driver)
+        self.login_create_board()
+        self.card_manipulation()
+
+
+    def login_create_board(self):
+        self.logger.info("****Started create board Test****")
         # go to create board link
         self.bp.go_to_create_board()
-        self.ui_helper = UIHelper(self.driver)
         pstr_url = self.driver.current_url
         # verify current url of create board
         assert self.ui_helper.verify_url(self.baseURL+self.create_boardURL, pstr_url)
@@ -63,85 +70,55 @@ class Test_UI_springboard:
         # verify board creation with success message created
         bln_final_result = self.bp.create_board(self.session_name, self.owner, self.success_message)
         if bln_final_result:
-            self.logger.info("*** Test 001 passed****")
+            self.logger.info("*** Board created successfully****")
             self.logger.info("****Create board Test End****")
-            self.driver.quit()
             assert True
         else:
-            self.logger.error("****Test 001 failed****")
+            self.logger.error("****Board creation unsuccessful****")
             self.logger.info("****Create board Test End****")
-            self.driver.quit()
             assert False
 
 
-
-    @pytest.mark.smoke
-    @pytest.mark.ui
-    def test_card_manipulation(self,launch_app):
+    def card_manipulation(self):
         self.logger.info("****Started Card manipulation Test****")
-        self.lp=LoginPage(self.driver)
-        self.bp = BoardPage(self.driver)
-        #login to application and verify homepage
-        assert self.lp.login(self.username,self.password)
-        #go to create board link
-        self.bp.go_to_create_board()
-        #create board and verify it
-        bln_final_result = self.bp.create_board(self.session_name,self.owner,self.success_message)
-        if bln_final_result:
-            self.ui_helper = UIHelper(self.driver)
-            self.cp = CreateCard(self.driver)
-            self.cp.wait_board_page_to_load()
-            pstr_url = self.driver.current_url
-            #verify board url
-            assert self.ui_helper.verify_url(self.baseURL+self.board_url, pstr_url)
-            #click went well card card
-            self.cp.clickCard(self.card_type_went_well)
-            #verify modal header
-            assert self.cp.verify_modal_header(self.card_modal_header)
-            #create went well card
-            self.cp.create_card(self.well_add_card_title,self.well_add_card_description)
-            #verify well card creation
-            assert self.cp.verify_card(self.card_type_went_well, self.well_add_card_title,self.well_add_card_description)
-            #click did'nt go well card
-            self.cp.clickCard(self.card_type_not_went_well)
-            #verify modal header
-            assert self.cp.verify_modal_header(self.card_modal_header)
-            #create didn't go well card
-            self.cp.create_card(self.not_well_add_card_title, self.not_well_add_card_description)
-            #verify didn't go well card
-            assert self.cp.verify_card(self.card_type_not_went_well,self.not_well_add_card_title, self.not_well_expected_desc)
-            #like the went well card
-            self.cp.click_activity(self.card_type_went_well,self.well_card_activity)
-            #verify like
-            bln_like= self.cp.verify_activity(self.card_type_went_well,self.well_card_activity,pstr_like_count =self.well_like_count)
-            #delete the didn't go well card
-            self.cp.click_activity(self.card_type_not_went_well,self.not_well_card_activity)
-            #verify card delete modal
-            assert self.cp.verify_delete_modal(self.not_well_delete_header, self.not_well_delete_question)
-            #confirm card delete
-            self.cp.delete_card()
-            #verify didn't go well card is deleted
-            bln_delete_card = self.cp.verify_delete_card(self.card_type_not_went_well)
-            if bln_like and bln_delete_card:
-                self.logger.info("***Test 002 passed****")
-                self.logger.info("*** Card manipulation test ended****")
-                self.driver.quit()
-                assert True
-            else:
-                self.logger.error("****Test 002 failed ****")
-                self.logger.info("*** Card manipulation test ended****")
-                self.driver.quit()
-                assert False
-        else:
-            self.logger.error("****Test 002 failed Board not created****")
+        self.cp.wait_board_page_to_load()
+        pstr_url = self.driver.current_url
+        #verify board url
+        assert self.ui_helper.verify_url(self.baseURL+self.board_url, pstr_url)
+        #click went well card card
+        self.cp.clickCard(self.card_type_went_well)
+        #verify modal header
+        assert self.cp.verify_modal_header(self.card_modal_header)
+        #create went well card
+        self.cp.create_card(self.well_add_card_title,self.well_add_card_description)
+        #verify well card creation
+        assert self.cp.verify_card(self.card_type_went_well, self.well_add_card_title,self.well_add_card_description)
+        self.cp.wait_board_page_to_load()
+        #click did'nt go well card
+        self.cp.clickCard(self.card_type_not_went_well)
+        #verify modal header
+        assert self.cp.verify_modal_header(self.card_modal_header)
+        #create didn't go well card
+        self.cp.create_card(self.not_well_add_card_title, self.not_well_add_card_description)
+        #verify didn't go well card
+        assert self.cp.verify_card(self.card_type_not_went_well,self.not_well_add_card_title, self.not_well_expected_desc)
+        #like the went well card
+        self.cp.click_activity(self.card_type_went_well,self.well_card_activity)
+        #verify like
+        bln_like= self.cp.verify_activity(self.card_type_went_well,self.well_card_activity,pstr_like_count =self.well_like_count)
+        #delete the didn't go well card
+        self.cp.click_activity(self.card_type_not_went_well,self.not_well_card_activity)
+        #verify card delete modal
+        assert self.cp.verify_delete_modal(self.not_well_delete_header, self.not_well_delete_question)
+        #confirm card delete
+        self.cp.delete_card()
+        #verify didn't go well card is deleted
+        bln_delete_card = self.cp.verify_delete_card(self.card_type_not_went_well)
+        if bln_like and bln_delete_card:
+            self.logger.info("***Card manipulation Successful****")
             self.logger.info("*** Card manipulation test ended****")
-            self.driver.quit()
+            assert True
+        else:
+            self.logger.error("****Card manipulation unsuccessful****")
+            self.logger.info("*** Card manipulation test ended****")
             assert False
-
-
-
-
-
-
-
-
