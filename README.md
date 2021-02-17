@@ -60,6 +60,8 @@ Unit tests are created to handle
 - ####divide by zero
 - ####infinite numers
 
+Since the **unittest** and **ui automation** tasks were given separately, that is why I have not grouped them together in execution. However, it will be just as easy to group and execute them together.
+
 **View HTML Report**
 The automation framework is created with the support of **pytest-html**.To view results after execution. Open
 
