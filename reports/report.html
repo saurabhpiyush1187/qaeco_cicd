@@ -243,7 +243,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 17-Feb-2021 at 12:04:13 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 17-Feb-2021 at 12:58:12 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -268,8 +268,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Tester</td>
         <td>Saurabh</td></tr></table>
     <h2>Summary</h2>
-    <p>4 tests ran in 0.25 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">4 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>3 tests ran in 68.44 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">3 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -283,36 +283,74 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_unit_tests.py::TestClass::test_addition</td>
-          <td class="col-duration">0.00</td>
+          <td class="col-name">tests/test_ui_tests.py::Test_jobs::test_page_elements</td>
+          <td class="col-duration">24.10</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>Launching chrome browser in Windows.........
+<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     root:jobpage.py:31 ****User is on the Job page****<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_ui_tests.py:105 ****Started Navigation Verification Test****
+INFO     root:test_ui_tests.py:108 ****Navigation verification test Successful****
+INFO     root:test_ui_tests.py:109 ****Navigation verification test  Ended****
+INFO     root:test_ui_tests.py:115 ****Started Search field Test****
+INFO     root:test_ui_tests.py:118 ****Search field test Successful****
+INFO     root:test_ui_tests.py:119 ****Search field test  Ended****
+INFO     root:test_ui_tests.py:125 ****Started Sector List Test****
+INFO     root:test_ui_tests.py:128 ****Sector list test Successful****
+INFO     root:test_ui_tests.py:129 ****Sector list test  Ended****<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_unit_tests.py::TestClass::test_division</td>
-          <td class="col-duration">0.00</td>
+          <td class="col-name">tests/test_ui_tests.py::Test_jobs::test_top_links</td>
+          <td class="col-duration">22.89</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>Launching chrome browser in Windows.........
+<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     root:jobpage.py:31 ****User is on the Job page****<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_ui_tests.py:85 ****Started Top Navigation link Test****
+INFO     root:ui_helper.py:111 URL is correct
+INFO     root:ui_helper.py:111 URL is correct
+INFO     root:ui_helper.py:111 URL is correct
+INFO     root:ui_helper.py:111 URL is correct
+INFO     root:ui_helper.py:111 URL is correct
+INFO     root:jobpage.py:106 **** Page headers verified ****
+INFO     root:test_ui_tests.py:88 ****Top Navigation link Successful****
+INFO     root:test_ui_tests.py:89 ****Top Navigation link  Ended****
+INFO     root:jobpage.py:31 ****User is on the Job page****
+INFO     root:test_ui_tests.py:95 ****Started Sign Create link Test****
+INFO     root:ui_helper.py:111 URL is correct
+INFO     root:ui_helper.py:111 URL is correct
+INFO     root:jobpage.py:106 **** Page headers verified ****
+INFO     root:test_ui_tests.py:98 ****Sign Create link Successful****
+INFO     root:test_ui_tests.py:99 ****Sign Create link  Ended****<br/></div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_unit_tests.py::TestClass::test_multiplication</td>
-          <td class="col-duration">0.00</td>
+          <td class="col-name">tests/test_ui_tests.py::Test_jobs::test_apply_jobs</td>
+          <td class="col-duration">21.20</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">tests/test_unit_tests.py::TestClass::test_subtract</td>
-          <td class="col-duration">0.00</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody></table></body></html>
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>Launching chrome browser in Windows.........
+<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     root:jobpage.py:31 ****User is on the Job page****<br/> -------------------------------Captured log call-------------------------------- <br/>INFO     root:test_ui_tests.py:69 ****Started Apply Job Test****Banking and finance
+INFO     root:jobpage.py:124 Banking and finance**** Clicked****
+INFO     root:sectorpage.py:32 ****User is on the Sector Job page****
+INFO     root:sectorpage.py:53 ****User is on the Job page****
+INFO     root:sectorpage.py:72 ****Job list returns****
+INFO     root:sectorpage.py:73 ****Job list is clicked****
+INFO     root:applypage.py:36 ****Job description found****
+INFO     root:applypage.py:46 ****Apply button found****
+INFO     root:test_ui_tests.py:78 ****Apply Job Successful**Banking and finance
+INFO     root:test_ui_tests.py:79 ****Apply Job  Ended ****Banking and finance
+INFO     root:jobpage.py:31 ****User is on the Job page****
+INFO     root:test_ui_tests.py:69 ****Started Apply Job Test****Business services
+INFO     root:jobpage.py:128 Business services**** Not found****
+INFO     root:jobpage.py:124 Business services**** Clicked****
+INFO     root:sectorpage.py:32 ****User is on the Sector Job page****
+INFO     root:sectorpage.py:53 ****User is on the Job page****
+INFO     root:sectorpage.py:72 ****Job list returns****
+INFO     root:sectorpage.py:73 ****Job list is clicked****
+INFO     root:applypage.py:36 ****Job description found****
+INFO     root:applypage.py:46 ****Apply button found****
+INFO     root:test_ui_tests.py:78 ****Apply Job Successful**Business services
+INFO     root:test_ui_tests.py:79 ****Apply Job  Ended ****Business services<br/></div></td></tr></tbody></table></body></html>
